@@ -1,0 +1,7 @@
+.aboutme {
+  .desc {
+    @include media-breakpoint-up(lg) {
+      text-align:  justify;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+img {
+  @extend .img-fluid;
+}
+
+figure.wp-caption {
+  @extend .figure;
+  img {
+    @extend .figure-img;
+  }
+  figcaption {
+    @extend .figure-caption;
+    text-align: center;
+  }
+}

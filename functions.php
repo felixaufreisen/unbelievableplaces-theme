@@ -44,7 +44,7 @@ if ( ! function_exists( 'unbelievable_places_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'unbelievable-places' ),
+			'primary' => esc_html__( 'Primary', 'unbelievable-places' ),
 		) );
 
 		/*
@@ -122,7 +122,7 @@ add_action( 'widgets_init', 'unbelievable_places_widgets_init' );
 function unbelievable_places_scripts() {
 	wp_enqueue_style( 'unbelievable-places-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'unbelievable-places-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_script( 'unbelievable-places-custom', get_template_directory_uri() . '/js/custom.js', array(), '', true );
 
 	wp_enqueue_script( 'unbelievable-places-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
@@ -159,3 +159,5 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+// Register Custom Navigation Walker
+require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';

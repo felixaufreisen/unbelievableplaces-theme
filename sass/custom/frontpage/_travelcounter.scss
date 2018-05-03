@@ -1,0 +1,153 @@
+// Reisedetail-Zähler
+//
+// < sm Anzeige .desc unter .count
+// >= sm Anzeige .desc neben .count
+.travel-details {
+  &-wrap {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    @include media-breakpoint-up(md) {
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: row;
+              flex-direction: row;
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+    }
+  }
+  &-item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    @include media-breakpoint-up(md) {
+      width: auto;
+      -webkit-box-pack: start;
+          -ms-flex-pack: start;
+              justify-content: flex-start;
+    }
+
+    .icon {
+      font-size: 3rem;
+      font-weight: 600;
+      color: $info;
+      @include media-breakpoint-up(lg) {
+        font-size: 6rem;
+      }
+    }
+
+    @include media-breakpoint-up(md) {
+      &:nth-child(odd) {
+        // Box über dem Icon
+        flex-direction: column;
+        // "Nase" des .desc-wrap unten
+        .desc-wrap {
+          &::after,
+          &::before {
+            top: 100%;
+          }
+          &::after {
+            border-top-color: #fff;
+          }
+          &::before {
+            border-top-color: $info;
+          }
+        }
+      }
+      &:nth-child(even) {
+        // Box unter dem Icon
+        flex-direction: column-reverse;
+        // "Nase" des .desc-wrap oben
+        .desc-wrap {
+          &::after,
+          &::before {
+            bottom: 100%;
+            top: inherit;
+          }
+          &::after {
+            border-bottom-color: #fff;
+          }
+          &::before {
+            border-bottom-color: $info;
+          }
+        }
+      }
+      // Allgemeine Eigenschaften der Box
+      // http://www.cssarrowplease.com/
+      .desc-wrap {
+        &::after,
+        &::before {
+          left: 50% !important;
+        }
+        &::after {
+          margin-left: -10px;
+          margin-top: 0px !important;
+          border-left-color: transparent !important;
+        }
+        &::before {
+          margin-left: -13px;
+          margin-top: 0px !important;
+          border-left-color: transparent !important;
+        }
+      }
+    }
+
+    .desc {
+      // Allgemeine Eigenschaften der Box
+      // http://www.cssarrowplease.com/
+      &-wrap {
+        position: relative;
+        background-color: #fff;
+        border: 2px solid $info;
+        padding: 0.5rem;
+        margin: 0.25rem;
+        border-radius: 0.5rem;
+        @include media-breakpoint-up(md) {
+          margin: 0;
+        }
+        &::after,
+        &::before {
+          // left: 50%;
+          left: 100%;
+          top: 50%;
+          border: solid transparent;
+          content: " ";
+          height: 0;
+          width: 0;
+          position: absolute;
+          pointer-events: none;
+        }
+        &::after {
+          border-color: rgba(255, 255, 255, 0);
+          border-width: 10px;
+          margin-top: -10px;
+          border-left-color: #fff;
+        }
+        &::before {
+          border-color: rgba(194, 225, 245, 0);
+          border-width: 13px;
+          margin-top: -13px;
+          border-left-color: $info;
+        }
+      }
+    }
+  }
+}

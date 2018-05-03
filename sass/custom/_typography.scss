@@ -1,0 +1,40 @@
+html {
+  font-size: 1rem;
+  @include media-breakpoint-up(sm) {
+    font-size: 1.1rem;
+  }
+  @include media-breakpoint-up(md) {
+    font-size: 1.2rem;
+  }
+  @include media-breakpoint-up(lg) {
+    font-size: 1.3rem;
+  }
+}
+
+// Linien umschließen h5
+h5.lines {
+  overflow: hidden;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 40px 0 40px;
+  color: $secondary;
+  &:before,
+  &:after {
+    background-color: $secondary;
+    content: "";
+    display: inline-block;
+    height: 1px;
+    position: relative;
+    vertical-align: middle;
+    width: 50%;
+    opacity: 0.5;
+  }
+  &:before {
+    right: 8px;
+    margin-left: -50%;
+  }
+  &:after {
+    left: 8px;
+    margin-right: -50%;
+  }
+}

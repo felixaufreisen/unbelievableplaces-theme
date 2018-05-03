@@ -1,0 +1,12 @@
+form {
+  p {
+    @extend .form-group;
+  }
+  input, textarea {
+    @extend .form-control;
+    &[type="submit"] {
+      @extend .btn;
+      @extend .btn-outline-secondary;
+    }
+  }
+}
