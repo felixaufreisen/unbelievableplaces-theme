@@ -11,30 +11,36 @@ html {
   }
 }
 
-// Linien umschließen h5
-h5.lines {
-  overflow: hidden;
-  text-align: center;
-  text-transform: uppercase;
-  margin: 40px 0 40px;
-  color: $secondary;
-  &:before,
-  &:after {
-    background-color: $secondary;
-    content: "";
-    display: inline-block;
-    height: 1px;
-    position: relative;
-    vertical-align: middle;
-    width: 50%;
-    opacity: 0.5;
-  }
-  &:before {
-    right: 8px;
-    margin-left: -50%;
-  }
-  &:after {
-    left: 8px;
-    margin-right: -50%;
-  }
+p {
+  margin-bottom: 1.75em;
 }
+
+// Linien umschließen h5
+h1,h2,h3,h4,h5,h6 {
+  &.lines {
+    overflow: hidden;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 40px 0 40px;
+    color: $secondary;
+    &:before,
+    &:after {
+      background-color: $secondary;
+      content: "";
+      display: inline-block;
+      height: 1px;
+      position: relative;
+      vertical-align: middle;
+      width: 50%;
+      opacity: 0.5;
+    }
+    &:before {
+      right: 8px;
+      margin-left: -50%;
+    }
+    &:after {
+      left: 8px;
+      margin-right: -50%;
+    }
+  }
+}  
