@@ -1,4 +1,4 @@
-form {
+form.comment-form {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -9,7 +9,7 @@ form {
       &email,
       &url {
         flex: 0 1 auto;
-        max-width: 240px;
+        max-width: 210px;
       }
       &comment {
         width: 100%;
@@ -17,11 +17,22 @@ form {
     }
     &.form-submit {
       text-align: right;
+      width: 100%;
+      margin-top: 0.5em;
+    }
+    label {
+      display: block;
+      text-align: left;
+      font-size: 0.7em;
+    }
+    &.comment-notes {
+      display: none;
     }
   }
   input, textarea {
     @extend .form-control;
     border-radius: 0;
+    font-size: 0.9em;
     &[type="submit"] {
       @extend .btn;
       @extend .btn-outline-secondary;
@@ -30,11 +41,6 @@ form {
   }
 }
 
-.comment-list {
-  margin-top: 1.5rem;
-  padding: 1.5rem;
-}
-  
 .comment-respond {
   margin-top: 1.5rem;
   padding: 1.5rem;

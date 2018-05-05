@@ -4,6 +4,7 @@ img {
 
 figure.wp-caption {
   @extend .figure;
+  max-width: 100%;
   img {
     @extend .figure-img;
   }
