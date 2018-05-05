@@ -1,12 +1,50 @@
 form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   p {
     @extend .form-group;
+    &.comment-form- {
+      &author,
+      &email,
+      &url {
+        flex: 0 1 auto;
+        max-width: 240px;
+      }
+      &comment {
+        width: 100%;
+      }
+    }
+    &.form-submit {
+      text-align: right;
+    }
   }
   input, textarea {
     @extend .form-control;
+    border-radius: 0;
     &[type="submit"] {
       @extend .btn;
       @extend .btn-outline-secondary;
+      border-radius: 0;
     }
+  }
+}
+
+.comment-list {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+  
+.comment-respond {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  text-align: center;
+  .comment-reply-title {
+    font-size: 0.6rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    vertical-align: top;
+    margin: 0 0 1.5rem 0;
   }
 }
