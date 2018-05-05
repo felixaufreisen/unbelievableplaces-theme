@@ -1,5 +1,6 @@
 .cover {
   height: 80vh;
+  min-height: 300px;
   overflow: hidden;
   margin-top: -80px; // navbar height
   border-bottom: 0.5em solid $info;
@@ -59,5 +60,16 @@
                 transform: scale(1.1);
       }
     }
+  }
+  .entry-title {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    position: absolute;
+    z-index: 3;
   }
 }
