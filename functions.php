@@ -122,9 +122,13 @@ add_action( 'widgets_init', 'unbelievable_places_widgets_init' );
 function unbelievable_places_scripts() {
 	wp_enqueue_style( 'unbelievable-places-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'unbelievable-places-custom', get_template_directory_uri() . '/js/custom.js', array(), '', true );
+	wp_enqueue_script( 'unbelievable-places-custom', get_template_directory_uri() . '/js/script.min.js', array(), '', true );
 
-	wp_enqueue_script( 'unbelievable-places-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_script( 'google-maps-api', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAgn6PnEgwO-VsqWZl0mPE6BGSQvtb0koc&callback=initMap', array(), '', true );
+
+	wp_enqueue_script( 'google-maps-infobox', get_template_directory_uri() . '/js/infobox.js', array(), '', true );
+
+	// wp_enqueue_script( 'unbelievable-places-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

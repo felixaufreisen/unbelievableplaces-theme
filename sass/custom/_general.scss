@@ -1,9 +1,13 @@
 body {
-  background-color: #f4f4f4;
+  background-color: $gray-200;
 }
 
 .comment-respond,
-article {
+.comment-list-wrap,
+.fp-wrap,
+article.post,
+aside#secondary,
+.related-posts {
   background-color: #fff;
   padding: 1.5rem;
   margin-top: 1.5rem;

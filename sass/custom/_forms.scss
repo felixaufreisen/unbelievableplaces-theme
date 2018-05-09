@@ -20,11 +20,6 @@ form.comment-form {
       width: 100%;
       margin-top: 0.5em;
     }
-    label {
-      display: block;
-      text-align: left;
-      font-size: 0.7em;
-    }
     &.comment-notes {
       display: none;
     }
@@ -37,6 +32,9 @@ form.comment-form {
       @extend .btn;
       @extend .btn-outline-secondary;
       border-radius: 0;
+      font-size: 0.7em;
+      letter-spacing: 2px;
+      text-transform: uppercase;
     }
   }
 }
@@ -45,12 +43,4 @@ form.comment-form {
   margin-top: 1.5rem;
   padding: 1.5rem;
   text-align: center;
-  .comment-reply-title {
-    font-size: 0.6rem;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    vertical-align: top;
-    margin: 0 0 1.5rem 0;
-  }
 }

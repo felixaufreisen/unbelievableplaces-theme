@@ -1,4 +1,85 @@
-a[rel="tag"] {
-  @extend .btn;
-  @extend .btn-outline-secondary;
+article.post {
+  line-height: 1.65em;
+  hyphens: auto;
+  a[rel="tag"] {
+    @extend .btn;
+    @extend .btn-outline-secondary;
+  }
+}
+
+.related-posts {
+  .title {
+    text-align: center;
+  }
+  &-wrap {
+    display: flex;
+    article {
+      display: block;
+      width: 33.33%;
+      text-align: center;
+      &:nth-child(1n+2) {
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+      }
+      .related-title {
+        margin: 0.75rem 0.25rem;
+        h3 {
+          margin: 0;
+          font-size: 1rem;
+          line-height: 1.4em;
+        }
+        a {
+          text-decoration: none;
+        }
+      }
+      .related-meta {
+        margin: 0;
+        .meta {
+          line-height: 1.8em;
+          letter-spacing: 2px;
+        }
+      }
+    }
+  }
+}
+
+.comment-list {
+  margin: 0;
+  margin-top: 1.5rem;
+  li {
+    list-style: none;
+    &.depth-1:first-child > .comment-wrap {
+      border-top: 0;
+    }
+    .comment-wrap {
+      display: flex;
+      padding-top: 1.5rem;
+      border-top: 1px solid $gray-400;
+      .comment-body {
+        flex: 1 1 auto;
+        align-items: center;
+        .comment-date {
+          line-height: 0.6em;
+          padding-top: 0.25rem;
+          // padding-bottom: 1.25rem;
+        }
+        p {
+          margin-top: 1.75em;
+        }
+      }
+    }
+    .comment-reply {
+      a{
+        @extend .btn;
+        @extend .btn-outline-secondary;
+        border-radius: 0;
+        font-size: 0.7em;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+    }
+    ol.children {
+      margin-right: 0;
+    }
+  }
 }

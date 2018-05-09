@@ -10,29 +10,32 @@
 ?>
 
 <header class="cover">
-	<?php unbelievable_places_post_thumbnail(); ?>
+	<?php the_post_thumbnail( 'full' ); ?>
 
-	<?php
-	if ( is_singular() ) :
-		the_title( '<h1 class="entry-title display-4">', '</h1>' );
-	else :
-		the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-	endif;
-
-	if ( 'post' === get_post_type() ) :
-		?>
-		<div class="entry-meta">
+	<div class="cover-title">
+		<div class="entry-content-wrap">
 			<?php
-			unbelievable_places_posted_on();
-			unbelievable_places_posted_by();
-			?>
-		</div><!-- .entry-meta -->
-	<?php endif; ?>
+			if ( is_singular() ) :
+				the_title( '<h1 class="entry-title display-4">', '</h1>' );
+			else :
+				the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+			endif;
+
+			if ( 'post' === get_post_type() ) :
+				?>
+				<div class="entry-meta-wrap">
+					<div class="entry-meta">
+						Am <?php	echo get_the_date(); ?> in	<?php echo get_the_category()[0]->name ?>.
+					</div>
+				</div><!-- .entry-meta -->
+			<?php endif; ?>
+		</div><!-- .entry-content-wrap -->
+	</div><!-- .cover-title -->
 </header><!-- .cover -->
 
 <div class="container">
 	<div class="row">
-		<div class="col-md-8">
+		<div class="col-lg-8">
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<?php
 				the_content( sprintf(

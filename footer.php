@@ -34,8 +34,5 @@
 
 <?php wp_footer(); ?>
 
-<script src="https://www.unbelievableplaces.de/design/js/markerclusterer.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgn6PnEgwO-VsqWZl0mPE6BGSQvtb0koc&callback=initMap"></script>
-
 </body>
 </html>

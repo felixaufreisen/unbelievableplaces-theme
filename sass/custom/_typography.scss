@@ -1,4 +1,5 @@
-html {
+body,
+a {
   font-size: 1rem;
   @include media-breakpoint-up(sm) {
     font-size: 1.1rem;
@@ -9,23 +10,115 @@ html {
   @include media-breakpoint-up(lg) {
     font-size: 1.3rem;
   }
+  color: $gray-700;
+}
+
+article a {
+  text-decoration: underline;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+a:hover {
+  color: $gray-700;
+}
+
+.btn {
+  text-decoration: none;
 }
 
 p {
   margin-bottom: 1.75em;
 }
 
-// Linien umschließen h5
+ul, ol {
+  margin: 0 24px 1.75em;
+  padding: 0;
+  li {
+    margin: 0.5em 0 0.5em;
+  }
+}
+
+ul > li {
+  list-style: none;
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    background: transparent;
+    width: 12px;
+    height: 1px;
+    border-top: 1px solid;
+    left: -24px;
+    top: 16px;
+    color: $gray-700;
+  }
+}
+
+.title {
+  text-align: center;
+}
+
+.comment-respond h3,
+.comment-list-wrap .title h3,
+.fp-grid h3,
+.fp-wrap .title h2,
+.related-posts .title h3 {
+  display: inline-block;
+  font-size: 0.6em;
+  line-height: 1.5em;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  vertical-align: top;
+  margin-bottom: 1.5rem;
+  position: relative;
+  &::before,
+  &::after {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 100%;
+    border-top: 1px solid $gray-200;
+  }
+  &::before {
+    margin-bottom: 3px;
+  }
+  &::after {
+    margin-top: 3px;
+  }
+}
+
+.comment-form label,
+.comment-date,
+.entry-meta-wrap *,
+.related-meta {
+  display: block;
+  text-align: center;
+  font-size: 0.7em;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.comment-form label,
+.comment-date {
+  text-align: left;
+}
+
 h1,h2,h3,h4,h5,h6 {
+  margin-bottom: 1em;
+  color: $gray-900;
+  // Linien umschließen h5
   &.lines {
     overflow: hidden;
     text-align: center;
     text-transform: uppercase;
     margin: 40px 0 40px;
-    color: $secondary;
+    color: $gray-700;
     &:before,
     &:after {
-      background-color: $secondary;
+      background-color: $gray-400;
       content: "";
       display: inline-block;
       height: 1px;
@@ -43,4 +136,4 @@ h1,h2,h3,h4,h5,h6 {
       margin-right: -50%;
     }
   }
-}  
+}

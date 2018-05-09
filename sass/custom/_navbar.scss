@@ -3,7 +3,7 @@
   background-color: rgba(248, 249, 250, 0.1);
   font-size: 1rem;
   height: 80px;
-  z-index: 3;
+  z-index: 4;
   transition: background-color 0.4s;
   &.fixed-top {
     background-color: rgba(248, 249, 250, 0.93);

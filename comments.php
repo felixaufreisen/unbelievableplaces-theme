@@ -24,49 +24,39 @@ if ( post_password_required() ) {
 
 	<?php
 	// You can start editing here -- including this comment!
-	if ( have_comments() ) :
-		?>
-		<h2 class="comments-title">
+	if ( have_comments() ) :  ?>
+
+		<div class="comment-list-wrap">
+			<div class="title">
+				<h3><?php comments_number(); ?></h3>
+			</div>
+
+			<?php the_comments_navigation(); ?>
+
+			<ol class="comment-list">
+				<?php
+				wp_list_comments( array(
+					'style'      => 'ol',
+					'short_ping' => true,
+					'reverse_top_level' => true,
+					'callback'	 => 'unbelievable_places_comments'
+				) );
+				?>
+			</ol><!-- .comment-list -->
+
 			<?php
-			$unbelievable_places_comment_count = get_comments_number();
-			if ( '1' === $unbelievable_places_comment_count ) {
-				printf(
-					/* translators: 1: title. */
-					esc_html__( 'One thought on &ldquo;%1$s&rdquo;', 'unbelievable-places' ),
-					'<span>' . get_the_title() . '</span>'
-				);
-			} else {
-				printf( // WPCS: XSS OK.
-					/* translators: 1: comment count number, 2: title. */
-					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $unbelievable_places_comment_count, 'comments title', 'unbelievable-places' ) ),
-					number_format_i18n( $unbelievable_places_comment_count ),
-					'<span>' . get_the_title() . '</span>'
-				);
-			}
-			?>
-		</h2><!-- .comments-title -->
+			the_comments_navigation();
 
-		<?php the_comments_navigation(); ?>
+			// If comments are closed and there are comments, let's leave a little note, shall we?
+			if ( ! comments_open() ) :
+				?>
+				<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'unbelievable-places' ); ?></p>
+				<?php
+			endif; ?>
 
-		<ol class="comment-list">
-			<?php
-			wp_list_comments( array(
-				'style'      => 'ol',
-				'short_ping' => true,
-			) );
-			?>
-		</ol><!-- .comment-list -->
+		</div> <!-- .comment-list-wrap -->
 
-		<?php
-		the_comments_navigation();
-
-		// If comments are closed and there are comments, let's leave a little note, shall we?
-		if ( ! comments_open() ) :
-			?>
-			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'unbelievable-places' ); ?></p>
-			<?php
-		endif;
-
+	<?php
 	endif; // Check for have_comments().
 
 	comment_form();

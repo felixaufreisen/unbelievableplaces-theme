@@ -1,15 +1,26 @@
 img {
-  @extend .img-fluid;
+  max-width: 100%;
+  height: auto;
 }
 
 figure.wp-caption {
   @extend .figure;
   max-width: 100%;
+  margin-bottom: 1.75em;
   img {
     @extend .figure-img;
+    margin-bottom: 0;
+    border-bottom: none;
   }
   figcaption {
     @extend .figure-caption;
     text-align: center;
+    border-top: none;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid $gray-400;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.7rem;
   }
 }
