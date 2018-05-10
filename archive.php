@@ -25,15 +25,54 @@ get_header();
 			<?php
 			/* Start the Loop */
 			while ( have_posts() ) :
-				the_post();
+				the_post(); 
+			?>
 
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_type() );
+				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>> 
+					<div class="thumbnail">
+						<a href="<?php the_permalink() ?>">
+							<?php the_post_thumbnail( 'medium' ) ?>
+						</a>
+					</div><!-- .thumbnail -->
+					<div class="content-wrap">
+						<header class="content-header">
+							<div class="category">
+								<?php
+								$cats = get_the_category();
+								$cat_name = $cats[0]->name;
+						   		$cat_id = $cats[0]->ID;
+								?>
+								<a href="<?php echo esc_url( get_category_link( $cat_id ) ); ?>">
+									<?php echo esc_html( $cat_name ) ?>
+								</a>
+							</div><!-- .category -->
+							<div class="title">
+								<h2 class="entry-title">
+									<a href="<?php the_permalink() ?>">
+										<?php the_title( ) ?>
+									</a>
+								</h2>
+							</div><!-- .title -->
+						</header>
+						<div class="content">
+							<?php
+							/*
+							 *
+							 * If post has More-Tag use it, if not show the excerpt
+							 *
+							 */
+							    if( strpos( $post->post_content, '<!--more-->' ) ) {
+								the_content( '', true );
+							    }
+							    else {
+								the_excerpt();
+							    }
+							?>
+						</div><!-- .content -->
+					</div><!-- .content-wrap -->
+				</article><!-- #post-<?php the_ID(); ?> -->
 
+			<?php
 			endwhile;
 
 			the_posts_navigation();
