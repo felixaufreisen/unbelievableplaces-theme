@@ -2,8 +2,7 @@
 var gulp = require('gulp');
 
 // Plugins einbauen
-var changed = require('gulp-changed'),
-    plumber = require('gulp-plumber')
+var plumber = require('gulp-plumber'),
     jshint = require ('gulp-jshint'),
     concat = require ('gulp-concat'),
     uglify = require ('gulp-uglify'),
@@ -24,7 +23,7 @@ gulp.task('js', function() {
   return gulp.src([
       'node_modules/jquery/dist/jquery-3.3.1.slim.js',
       'node_modules/bootstrap/dist/js/bootstrap.js',
-      'js/markerclusterer.js',
+      'node_modules/js-marker-clusterer/src/markerclusterer.js',
       'js/map.js',
       'js/*.js',
       '!js/customizer.js',

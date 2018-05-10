@@ -25,7 +25,16 @@
 				?>
 				<div class="entry-meta-wrap">
 					<div class="entry-meta">
-						Am <?php	echo get_the_date(); ?> in	<?php echo get_the_category()[0]->name ?>.
+						<?php
+							$cats = get_the_category();
+							$cat_name = $cats[0]->name;
+							$cat_id = $cats[0]->ID;
+						?>
+						<span>Am <time datetime="<?php echo get_the_date( 'c' ); ?>"><?php echo get_the_date( 'j F Y' ); ?></time> in
+							<a href="<?php echo esc_url( get_category_link( $cat_id ) ); ?>">
+								<?php echo esc_html( $cat_name ) ?>
+							</a>.
+						</span>
 					</div>
 				</div><!-- .entry-meta -->
 			<?php endif; ?>

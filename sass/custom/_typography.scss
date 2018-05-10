@@ -20,8 +20,12 @@ article a {
   }
 }
 
-a:hover {
-  color: $gray-700;
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+    color: $gray-600;
+  }
 }
 
 .btn {
@@ -93,10 +97,11 @@ ul > li {
 .comment-form label,
 .comment-date,
 .entry-meta-wrap *,
-.related-meta {
+.related-meta,
+.content-meta * {
   display: block;
   text-align: center;
-  font-size: 0.7em;
+  font-size: 0.7rem;
   letter-spacing: 2px;
   text-transform: uppercase;
 }

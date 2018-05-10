@@ -1,0 +1,21 @@
+.entry-meta-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  time, a {
+    display: inline-block;
+  }
+}
+
+.entry-meta-wrap div,
+header .content-meta {
+  background-color: $dark;
+  opacity: 0.8;
+  padding: 0.5em;
+  border: 1px solid $light;
+  & * {
+    color: $light;
+    line-height: 1em;
+    text-decoration: none;
+  }
+}

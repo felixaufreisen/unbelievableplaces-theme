@@ -1,0 +1,44 @@
+.archive {
+    article {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    &:nth-child(even) {
+      flex-direction: row-reverse;
+      .thumbnail {
+        margin-right: 0;
+        margin-left: 1.5rem;
+      }
+      .title {
+        text-align: left;
+      }
+    }
+    .thumbnail {
+      flex: 0 0 40%;
+      margin-right: 1.5rem;
+    }
+    .content-meta {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .content * {
+      font-size: 1rem;
+      line-height: 1.5em;
+      margin: 0;
+    }
+    .title {
+      text-align: right;
+    }
+    h2, .content-meta {
+      margin-bottom: 1rem;
+    }
+    a {
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
