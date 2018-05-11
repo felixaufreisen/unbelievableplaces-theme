@@ -87,7 +87,7 @@ add_action( 'get_unbelievable_map', 'unbelievable_places_map', 10 , 3 );
 
 /**
  * Show related posts
- */
+**/
 function unbelievable_places_related_posts( ) {
 	$orig_post = $post;
 	global $post;
@@ -180,3 +180,12 @@ function unbelievable_places_comments($comment, $args, $depth) {
 	</div><?php
 	endif;
 }
+
+/**
+ * Add custom thumbnail sizes
+ * https://developer.wordpress.org/reference/functions/add_image_size/
+**/
+function unbelievable_places_thumbnails() {
+    add_image_size( 'category-thumb', 600, 600, true ); 
+}
+add_action( 'after_setup_theme', 'unbelievable_places_thumbnails' );
