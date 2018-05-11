@@ -35,7 +35,7 @@ get_header();
 					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 						<div class="thumbnail">
 							<a href="<?php the_permalink() ?>">
-								<?php the_post_thumbnail( 'medium' ) ?>
+								<?php the_post_thumbnail( 'category-thumb' ) ?>
 							</a>
 						</div><!-- .thumbnail -->
 						<div class="content-wrap">
