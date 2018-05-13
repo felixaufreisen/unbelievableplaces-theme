@@ -37,9 +37,9 @@ gulp.task('js', function() {
     .pipe(gulp.dest('./js/'))
 });
 
-gulp.task('build', [ 'css', 'js' ]);
+gulp.task('build', gulp.parallel( 'css', 'js' ));
 
 gulp.task('watch', function() {
-  gulp.watch('sass/**/*.scss', ['css'])
-  gulp.watch(['js/*.js', '!js/customizer.js', '!js/script.min.js'], ['js'])
+  gulp.watch('sass/**/*.scss', gulp.series( 'css' ))
+  gulp.watch(['js/*.js', '!js/customizer.js', '!js/script.min.js'], gulp.series( 'js' ))
 });

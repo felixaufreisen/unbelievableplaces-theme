@@ -28,6 +28,10 @@
     "jshint": "^2.9.5"
   },
   "dependencies": {
+    "@fortawesome/fontawesome": "^1.1.8",
+    "@fortawesome/fontawesome-free-brands": "^5.0.13",
+    "@fortawesome/fontawesome-free-solid": "^5.0.13",
+    "@material/typography": "^0.35.0",
     "bootstrap": "^4.1.1",
     "jquery": "^3.3.1",
     "js-marker-clusterer": "git+https://github.com/googlemaps/js-marker-clusterer.git"

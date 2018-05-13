@@ -1,4 +1,5 @@
 body {
+  @include mdc-typography-base;
   background-color: $gray-200;
 }
 

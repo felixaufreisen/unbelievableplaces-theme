@@ -20,19 +20,15 @@ Normalizing styles have been helped along thanks to the fine work of
 Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 */
 
-/*!
- * Bootstrap v4.1.0 (https://getbootstrap.com/)
- * Copyright 2011-2018 The Bootstrap Authors
- * Copyright 2011-2018 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/node_modules/bootstrap/scss/blob/master/LICENSE)
- */
+@import 'variables';
 
+// Bootstrap
 @import "node_modules/bootstrap/scss/functions";
 @import "node_modules/bootstrap/scss/variables";
 @import "node_modules/bootstrap/scss/mixins";
-@import "node_modules/bootstrap/scss/root";
+// @import "node_modules/bootstrap/scss/root";
 @import "node_modules/bootstrap/scss/reboot";
-@import "node_modules/bootstrap/scss/type";
+// @import "node_modules/bootstrap/scss/type";
 @import "node_modules/bootstrap/scss/images";
 // @import "node_modules/bootstrap/scss/code";
 @import "node_modules/bootstrap/scss/grid";
@@ -63,8 +59,10 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 @import "node_modules/bootstrap/scss/utilities";
 // @import "node_modules/bootstrap/scss/print";
 
+// Material typography
+@import 'node_modules/@material/typography/mdc-typography';
+
 // Fontawsome
-$fa-font-path:  'webfonts';
 @import 'fontawesome/fontawesome';
 @import 'fontawesome/fa-brands';
 @import 'fontawesome/fa-solid';
