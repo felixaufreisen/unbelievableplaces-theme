@@ -27,6 +27,7 @@
         </div>
         <div class="copyright col-12"><small>&copy; Felix Friebe</small></div>
       </div>
+		</div><!-- .container -->
 	</footer><!-- .site-footer -->
 </div><!-- #page -->
 

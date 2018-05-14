@@ -1,5 +1,4 @@
-body,
-a {
+body {
   font-size: 1rem;
   @include media-breakpoint-up(sm) {
     font-size: 1.1rem;
@@ -10,7 +9,10 @@ a {
   @include media-breakpoint-up(lg) {
     font-size: 1.3rem;
   }
-  color: $gray-700;
+}
+
+b, strong {
+  font-weight: 600;
 }
 
 article a {
@@ -20,20 +22,8 @@ article a {
   }
 }
 
-a {
-  text-decoration: none;
-  &:hover {
-    text-decoration: underline;
-    color: $gray-600;
-  }
-}
-
 .btn {
   text-decoration: none;
-}
-
-p {
-  margin-bottom: 1.75em;
 }
 
 ul, ol {
@@ -64,35 +54,40 @@ ul > li {
   text-align: center;
 }
 
-.comment-respond h3,
-.comment-list-wrap .title h3,
-.fp-grid h3,
-.fp-wrap .title h2,
-.related-posts .title h3 {
-  display: inline-block;
-  font-size: 0.6em;
-  line-height: 1.5em;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  vertical-align: top;
-  margin-bottom: 1.5rem;
-  position: relative;
-  &::before,
-  &::after {
-    content: " ";
-    display: block;
-    position: absolute;
-    width: 100%;
-    border-top: 1px solid $gray-200;
-  }
-  &::before {
-    margin-bottom: 3px;
-  }
-  &::after {
-    margin-top: 3px;
-  }
+.cover-title .entry-meta * {
+  font-size: 1rem;
+  padding: 3px;
 }
+
+// .comment-respond h3,
+// .comment-list-wrap .title h3,
+// .fp-grid h3,
+// .fp-wrap .title h2,
+// .related-posts .title h3 {
+//   display: inline-block;
+//   font-size: 0.6em;
+//   line-height: 1.5em;
+//   text-align: center;
+//   text-transform: uppercase;
+//   letter-spacing: 4px;
+//   vertical-align: top;
+//   margin-bottom: 1.5rem;
+//   position: relative;
+//   &::before,
+//   &::after {
+//     content: " ";
+//     display: block;
+//     position: absolute;
+//     width: 100%;
+//     border-top: 1px solid $gray-200;
+//   }
+//   &::before {
+//     margin-bottom: 3px;
+//   }
+//   &::after {
+//     margin-top: 3px;
+//   }
+// }
 
 .comment-form label,
 .comment-date,
@@ -101,7 +96,7 @@ ul > li {
 .content-meta * {
   display: block;
   text-align: center;
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   letter-spacing: 2px;
   text-transform: uppercase;
 }

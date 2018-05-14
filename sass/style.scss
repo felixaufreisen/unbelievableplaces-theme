@@ -28,7 +28,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 @import "node_modules/bootstrap/scss/mixins";
 // @import "node_modules/bootstrap/scss/root";
 @import "node_modules/bootstrap/scss/reboot";
-// @import "node_modules/bootstrap/scss/type";
+@import "node_modules/bootstrap/scss/type";
 @import "node_modules/bootstrap/scss/images";
 // @import "node_modules/bootstrap/scss/code";
 @import "node_modules/bootstrap/scss/grid";
@@ -58,9 +58,6 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 // @import "node_modules/bootstrap/scss/carousel";
 @import "node_modules/bootstrap/scss/utilities";
 // @import "node_modules/bootstrap/scss/print";
-
-// Material typography
-@import 'node_modules/@material/typography/mdc-typography';
 
 // Fontawsome
 @import 'fontawesome/fontawesome';
