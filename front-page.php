@@ -15,11 +15,11 @@
 get_header();
 ?>
 
-<div class="cover">
+<div class="cover" id="front-page">
   <img src="https://www.unbelievableplaces.de/design/DSC01346.jpg" alt="">
 </div>
 
-<main id="main" class="container">
+<main id="main" class="container-fluid">
 
   <section class="fp-wrap">
     <div class="title">
@@ -39,7 +39,10 @@ get_header();
     <div class="title">
       <h2>Worüber ich schon geschrieben habe</h2>
     </div>
-    <?php do_action( 'get_unbelievable_map', '50.1', '8.7', '3.6' ) ?>
+    <div class="map-wrap embed-responsive embed-responsive-16by9">
+      <?php do_action( 'unbelievable_loader' ) ?>
+      <?php do_action( 'get_unbelievable_map', '50.1', '8.7', '3.6' ) ?>
+    </div>
   </section>
 
   <section class="fp-wrap">
@@ -98,17 +101,35 @@ get_header();
 
       foreach( $recent_posts as $recent ){
         $cats = get_the_category($recent["ID"]);
-        echo '<div class="item-wrap">';
-        echo '<div class="item">';
-        echo '<div class="pic">';
-        echo '<a href="' . get_permalink($recent["ID"]) . '">' . get_the_post_thumbnail( $recent["ID"], 'medium_large' ) . '</a>';
-        echo '</div>'; // .pic
-        echo '<div class="desc">';
-        echo '<h3>' . $cats[0]->name . '</h3>';
-        echo '<p><a href="' . get_permalink($recent["ID"]) . '">' . $recent["post_title"] . '</a></p>';
-        echo '</div>'; // .desc
-        echo '</div>'; // .item
-        echo '</div>'; // .item-wrap
+        $cat_name = $cats[0]->name;
+        $cat_id = get_cat_ID( $cat_name ); ?>
+        <article class="item-wrap">
+          <div class="item">
+            <div class="pic">
+              <a href="<?php echo esc_url( get_permalink( $recent["ID"] )) ?>">
+                <?php echo get_the_post_thumbnail( $recent["ID"], 'medium_large' ) ?>
+              </a>
+            </div><!-- .pic -->
+            <div class="desc">
+              <div class="content-meta">
+                <span class="category">
+                  <a href="<?php echo esc_url( get_category_link( $cat_id ) ); ?>">
+                    <?php echo esc_html( $cat_name ) ?>
+                  </a>
+                </span>
+                <time datetime="<?php echo get_the_date( 'c',  $recent["ID"] ) ?>">
+                  <?php echo get_the_date( 'j F Y',  $recent["ID"] ); ?>
+                </time>
+              </div> <!-- .content-meta -->
+              <h3>
+                <a href="<?php echo esc_url( get_permalink( $recent["ID"] )) ?>">
+                  <?php echo esc_html( $recent["post_title"] ) ?>
+                </a>
+              </h3>
+            </div> <!-- .desc -->
+          </div> <!-- .item -->
+        </article> <!-- .item-wrap -->
+        <?php
       }
 
       wp_reset_query();

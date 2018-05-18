@@ -37,17 +37,31 @@ function unbelievable_places_pingback_header() {
 add_action( 'wp_head', 'unbelievable_places_pingback_header' );
 
 /**
- * Generate container for embedded map
+ * Generate social-wrap for embedded map
  */
 function unbelievable_places_map( $set_lat, $set_lng, $set_zoom ) {
+	// Add necesary scripts to the document
+	wp_enqueue_script( 'google-maps-api', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAgn6PnEgwO-VsqWZl0mPE6BGSQvtb0koc&callback=initMap', array(), '', true );
+	wp_enqueue_script( 'google-maps-infobox', get_template_directory_uri() . '/js/infobox.js', array(), '', true );
 	// Init
 	$a = [];
 	$locations = [];
 	$settings = [];
-	// The Loop
+	// Show only published posts
 	$args = array( 'post_type' => 'post' );
+	// in category and tag archives show only matching posts
+	if ( is_category() || is_tag() ) {
+		if ( is_category() ) :
+			$archive_type = "category_name";
+		elseif ( is_tag() ) :
+			$archive_type = "tag";
+		endif;
+		$a = array( $archive_type => single_cat_title( '', false ) );
+		$args = array_merge( $args, $a );
+	}
+	// Start the WP_Query
 	$my_query = new WP_Query( $args );
-	while($my_query->have_posts()) : $my_query->the_post();
+	while( $my_query->have_posts()) : $my_query->the_post();
 		$lat = get_post_meta( get_the_ID(),'lat',true );
 		$lng = get_post_meta( get_the_ID(),'lng',true );
 		// Map Content
@@ -59,15 +73,15 @@ function unbelievable_places_map( $set_lat, $set_lng, $set_zoom ) {
 			$link = get_the_permalink();
 			$thumbnail = get_the_post_thumbnail( get_the_ID(), 'medium' );
 			$a = array("lat"		=>	(float)$lat,
-						 "lng"		=>	(float)$lng,
-						 "category"	=>	$category,
-						 "date"		=>	$date,
-						 "title"		=>	$title,
-						 "link"		=>	$link,
+						 "lng"				=>	(float)$lng,
+						 "category"		=>	$category,
+						 "date"				=>	$date,
+						 "title"			=>	$title,
+						 "link"				=>	$link,
 						 "thumbnail"	=>	$thumbnail,
-						 "color"		=>	"#fd7e14"
+						 "color"			=>	"#fd7e14"
 						);
-			array_push($locations,$a);
+			array_push( $locations, $a );
 		}
 	endwhile;
 	// Map Settings
@@ -186,6 +200,97 @@ function unbelievable_places_comments($comment, $args, $depth) {
  * https://developer.wordpress.org/reference/functions/add_image_size/
 **/
 function unbelievable_places_thumbnails() {
-    add_image_size( 'category-thumb', 600, 600, true ); 
+    add_image_size( 'category-thumb', 600, 600, true );
 }
 add_action( 'after_setup_theme', 'unbelievable_places_thumbnails' );
+
+function unbelievable_places_nav_setup() {
+	$class = 'class="navbar navbar-expand-lg';
+	$style = 'style="';
+	if ( is_front_page() || is_single() ) {
+		$class = $class . ' navbar-dark cover-picture';
+		$style = $style . 'margin-bottom: -80px;';
+	} else {
+		$class = $class . ' navbar-light';
+	}
+	// Close tags
+	$class = $class . '"';
+	$style = $style . '"';
+	// Output
+	echo $class . ' ' . $style;
+}
+add_action( 'get_unbelievable_nav_setup', 'unbelievable_places_nav_setup' );
+
+function unbelievable_places_loader() { ?>
+	<div id="loading">
+		<div id="loading-center">
+			<div id="loading-center-absolute">
+				<div class="object" id="object-1"></div>
+				<div class="object" id="object-2" style=""></div>
+				<div class="object" id="object-3" style=""></div>
+				<div class="object" id="object-4" style=""></div>
+				<div class="object" id="object-5" style=""></div>
+			</div>
+		</div>
+	</div>
+<?php
+}
+add_action( 'unbelievable_loader', 'unbelievable_places_loader');
+
+function unbelievable_places_share() {
+	$link = rawurlencode(get_the_permalink());
+	$title = rawurlencode(get_the_title()); ?>
+
+	  <div id="share">
+	    <a href="https://twitter.com/home?status=<?php echo $title; ?>%20<?php echo $link; ?>" class="social-wrap twitter" rel="nofollow" target="_blank">
+	      <svg  preserveAspectRatio="xMinYMin meet" viewBox="0 0 200 200" class="circle">
+	         <circle cx="100" cy="100" r="50"/>
+	      </svg>
+	      <div class="social">
+	        <i class="fab fa-twitter"></i>
+	      </div>
+	    </a>
+	    <a href="https://www.facebook.com/sharer.php?u=<?php echo $link; ?>&amp;t=<?php echo $title; ?>" class="social-wrap facebook" rel="nofollow" target="_blank">
+	      <svg  preserveAspectRatio="xMinYMin meet" viewBox="0 0 200 200" class="circle">
+	         <circle cx="100" cy="100" r="50"/>
+	      </svg>
+	      <div class="social">
+	        <i class="fab fa-facebook-f"></i>
+	      </div>
+	    </a>
+	    <a href="https://plus.google.com/share?url=<?php echo $link; ?>" class="social-wrap google" rel="nofollow" target="_blank">
+	      <svg  preserveAspectRatio="xMinYMin meet" viewBox="0 0 200 200" class="circle">
+	         <circle cx="100" cy="100" r="50"/>
+	      </svg>
+	      <div class="social">
+	        <i class="fab fa-google-plus-g"></i>
+	      </div>
+	    </a>
+	    <a href="http://pinterest.com/pin/create/button/?url=<?php echo $link; ?>" class="social-wrap pinterest" rel="nofollow" target="_blank">
+	      <svg  preserveAspectRatio="xMinYMin meet" viewBox="0 0 200 200" class="circle">
+	         <circle cx="100" cy="100" r="50"/>
+	      </svg>
+	      <div class="social">
+	        <i class="fab fa-pinterest-p"></i>
+	      </div>
+	    </a>
+	    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;title=<?php echo $title; ?>&amp;url=<?php echo $link; ?>" class="social-wrap linkedin" rel="nofollow" target="_blank">
+	      <svg  preserveAspectRatio="xMinYMin meet" viewBox="0 0 200 200" class="circle">
+	         <circle cx="100" cy="100" r="50"/>
+	      </svg>
+	      <div class="social">
+	        <i class="fab fa-linkedin-in"></i>
+	      </div>
+	    </a>
+			<a href="mailto:?subject=<?php echo rawurlencode(get_the_title()); ?>&amp;body=<?php echo rawurlencode(get_the_permalink()); ?>" class="social-wrap email" rel="nofollow" target="_blank">
+	      <svg  preserveAspectRatio="xMinYMin meet" viewBox="0 0 200 200" class="circle">
+	         <circle cx="100" cy="100" r="50"/>
+	      </svg>
+	      <div class="social">
+	        <i class="fas fa-envelope-open"></i>
+	      </div>
+	    </a>
+	  </div>
+<?php
+}
+add_action( 'unbelievable_share', 'unbelievable_places_share' );

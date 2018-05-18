@@ -124,9 +124,6 @@ function unbelievable_places_scripts() {
 
 	wp_enqueue_script( 'unbelievable-places-custom', get_template_directory_uri() . '/js/script.min.js', array(), '', true );
 
-	wp_enqueue_script( 'google-maps-api', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAgn6PnEgwO-VsqWZl0mPE6BGSQvtb0koc&callback=initMap', array(), '', true );
-
-	wp_enqueue_script( 'google-maps-infobox', get_template_directory_uri() . '/js/infobox.js', array(), '', true );
 
 	// wp_enqueue_script( 'unbelievable-places-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 

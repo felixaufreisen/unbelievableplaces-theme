@@ -2,13 +2,10 @@ body {
   // @include mdc-typography-base;
 }
 
-.comment-respond,
-.comment-list-wrap,
-.fp-wrap,
-article.post,
-aside#secondary,
-.related-posts {
-  background-color: #fff;
-  padding: 1.5rem;
-  margin-top: 1.5rem;
+.container-fluid {
+  max-width: 1248px;
+}
+
+iframe {
+  max-width: 100%;
 }

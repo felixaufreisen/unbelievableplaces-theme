@@ -9,7 +9,7 @@
 
 ?>
 
-<header class="cover">
+<header class="cover" id="post">
 	<?php the_post_thumbnail( 'full' ); ?>
 
 	<div class="cover-title">
@@ -28,7 +28,7 @@
 						<?php
 							$cats = get_the_category();
 							$cat_name = $cats[0]->name;
-							$cat_id = $cats[0]->ID;
+							$cat_id = get_cat_ID( $cat_name );
 						?>
 						<span>Am <time datetime="<?php echo get_the_date( 'c' ); ?>"><?php echo get_the_date( 'j F Y' ); ?></time> in
 							<a href="<?php echo esc_url( get_category_link( $cat_id ) ); ?>">
@@ -42,7 +42,7 @@
 	</div><!-- .cover-title -->
 </header><!-- .cover -->
 
-<div class="container">
+<div class="container-fluid">
 	<div class="row">
 		<div class="col-lg-8">
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>

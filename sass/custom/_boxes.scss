@@ -1,3 +1,15 @@
+.comment-respond,
+.comment-list-wrap,
+.fp-wrap,
+article.post,
+aside#secondary,
+.related-posts,
+header.archive .title {
+  background-color: #fff;
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+}
+
 .entry-meta-wrap {
   display: flex;
   flex-direction: row;
@@ -8,7 +20,8 @@
 }
 
 .entry-meta-wrap div,
-header .content-meta {
+header .content-meta,
+.fp-grid .content-meta {
   background-color: $dark;
   opacity: 0.8;
   padding: 0.5em;

@@ -10,16 +10,28 @@
 get_header();
 ?>
 
-<div class="container">
+<header class="archive">
+	<div class="cover">
+		<?php do_action( 'unbelievable_loader' ) ?>
+		<?php do_action( 'get_unbelievable_map', '50.1', '8.7', '3.6' ) ?>
+	</div>
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-12">
+				<div class="title">
+					<?php
+						single_cat_title( '<h1 class="page-title display-4">', '</h1>' );
+						the_archive_description( '<div class="archive-description">', '</div>' );
+					?>
+				</div>
+			</div>
+		</div>
+	</div>
+</header><!-- .page-header -->
+
+<div class="container-fluid">
 	<div class="row">
-		<div class="col-12">
-			<header class="page-header">
-				<?php
-				the_archive_title( '<h1 class="page-title">', '</h1>' );
-				the_archive_description( '<div class="archive-description">', '</div>' );
-				?>
-			</header><!-- .page-header -->
-		</div><!-- .col-12 -->
 
 	<div id="primary" class="content-area col-lg-8">
 		<main id="main" class="site-main">
@@ -81,6 +93,9 @@ get_header();
 								    }
 								?>
 							</div><!-- .content -->
+							<div class="read-more-wrap">
+								<a href="<?php the_permalink() ?>" class="read-more">Weiterlesen</a>
+							</div>
 						</div><!-- .content-wrap -->
 					</article><!-- #post-<?php the_ID(); ?> -->
 

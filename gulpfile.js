@@ -6,22 +6,26 @@ var plumber = require('gulp-plumber'),
     jshint = require ('gulp-jshint'),
     concat = require ('gulp-concat'),
     uglify = require ('gulp-uglify'),
-    sass = require('gulp-sass')
+    sass = require('gulp-sass'),
     autoprefixer = require ('gulp-autoprefixer'),
-    cleanCSS = require ('gulp-clean-css');
+    cleanCSS = require ('gulp-clean-css')
 
 gulp.task('css', function() {
   return gulp.src('sass/style.scss')
     .pipe(plumber())
     .pipe(sass())
-    .pipe(autoprefixer())
+    .pipe(autoprefixer({
+      browsers: ['last 2 versions'],
+      cascade: false
+    }))
     .pipe(cleanCSS())
     .pipe(gulp.dest('./'))
 });
 
 gulp.task('js', function() {
   return gulp.src([
-      'node_modules/jquery/dist/jquery-3.3.1.slim.js',
+      'node_modules/jquery/dist/jquery.slim.js',
+      'node_modules/popper.js/dist/umd/popper.js',
       'node_modules/bootstrap/dist/js/bootstrap.js',
       'node_modules/js-marker-clusterer/src/markerclusterer.js',
       'js/map.js',

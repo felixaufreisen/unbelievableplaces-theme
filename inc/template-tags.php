@@ -71,6 +71,8 @@ if ( ! function_exists( 'unbelievable_places_entry_footer' ) ) :
 				/* translators: 1: list of tags. */
 				printf( '<div class="btn-group btn-group-sm" role="group">' . esc_html__( '%1$s', 'unbelievable-places' ) . '</div>', $tags_list ); // WPCS: XSS OK.
 			}
+
+			do_action( 'unbelievable_share' );
 		}
 
 		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {

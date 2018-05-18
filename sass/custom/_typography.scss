@@ -22,31 +22,40 @@ article a {
   }
 }
 
-.btn {
-  text-decoration: none;
-}
-
-ul, ol {
-  margin: 0 24px 1.75em;
-  padding: 0;
-  li {
-    margin: 0.5em 0 0.5em;
+.fp-grid,
+.archive {
+  a {
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 
-ul > li {
-  list-style: none;
-  position: relative;
-  &::before {
-    content: '';
-    position: absolute;
-    background: transparent;
-    width: 12px;
-    height: 1px;
-    border-top: 1px solid;
-    left: -24px;
-    top: 16px;
-    color: $gray-700;
+article,
+  aside {
+  ul, ol {
+    margin: 0 24px 1.75em;
+    padding: 0;
+    li {
+      margin: 0.5em 0 0.5em;
+    }
+  }
+
+  ul > li {
+    list-style: none;
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      background: transparent;
+      width: 12px;
+      height: 1px;
+      border-top: 1px solid;
+      left: -24px;
+      top: 16px;
+      color: $gray-700;
+    }
   }
 }
 

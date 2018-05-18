@@ -29,25 +29,26 @@
 		<a class="skip-link sr-only" href="#content"><?php esc_html_e( 'Skip to content', 'unbelievable-places' ); ?></a>
 
 		<header id="masthead" class="site-header">
-			<nav class="navbar navbar-expand-lg navbar-dark">
-				<div class="container">
-					<a class="navbar-brand" href="#">Felix auf Reisen</a>
+			<nav <?php do_action( 'get_unbelievable_nav_setup' ) ?>>
+				<div class="container-fluid">
+					<a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>">Felix auf Reisen</a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Menü öffnen">
 						<span class="navbar-toggler-icon"></span>
 					</button>
+					<div class="collapse navbar-collapse" id="navbarNavDropdown">
 					<?php
 					wp_nav_menu( array(
 						'theme_location'    => 'primary',
 						'depth'             => 2,
 						'container'         => 'div',
-						'container_class'   => 'collapse navbar-collapse',
-						'container_id'      => 'navbarNavDropdown',
+						// 'container_class'   => 'collapse navbar-collapse',
+						// 'container_id'      => 'navbarNavDropdown',
 						'menu_class'        => 'nav navbar-nav',
 						'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
 						'walker'            => new WP_Bootstrap_Navwalker()
 					) );
 					?>
-					<ul class="navbar-nav flex-row justify-content-between mt-2 mt-lg-0">
+					<ul class="navbar-nav social">
 						<li class="nav-item">
 							<a href="#" class="nav-link"><i class="fab fa-facebook-square" aria-hidden></i><span class="sr-only">Facebook</span></a>
 						</li>
@@ -67,6 +68,7 @@
 							<a onclick="openSearch()" class="nav-link pointer"><i class="fas fa-search" aria-hidden></i><span class="sr-only">Suche</span></a>
 						</li>
 					</ul>
+					</div>
 				</div>
 			</nav><!-- #site-navigation -->
 		</header><!-- #masthead -->

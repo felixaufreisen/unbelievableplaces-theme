@@ -1,14 +1,29 @@
 // Navbar-Deckkraft auf 10%, beim Scrollen auf 93%
 .navbar {
-  background-color: rgba(248, 249, 250, 0.1);
-  font-size: 1rem;
+  background-color: rgba($light, 0.1);
   height: 80px;
   z-index: 4;
   transition: background-color 0.4s;
   &.fixed-top {
-    background-color: rgba(248, 249, 250, 0.93);
+    background-color: rgba($light, 0.93);
     height: inherit;
-   }
+  }
+}
+
+.navbar-collapse {
+  @include media-breakpoint-up(lg) {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+ul.navbar-nav.social {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  @include media-breakpoint-up(lg) {
+    justify-content: space-between;
+  }
 }
 
 /* The overlay effect with black background */
@@ -23,8 +38,7 @@
   background-color: rgb(0,0,0);
   background-color: rgba(0,0,0, 0.8); /* Black with a little bit see-through */
   opacity: 0;
-  -webkit-transition: opacity .4s;
-  transition: opacity .4s;
+  transition: opacity .4s ease-in-out;
   /* The content */
   input[type="search"] {
     position: absolute;
@@ -41,6 +55,9 @@
     padding-left: 30px;
     padding-right: 30px;
     outline: none;
+    &:focus {
+      outline: none;
+    }
   }
   .btn {
     position: absolute;
