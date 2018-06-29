@@ -11,7 +11,10 @@ var plumber = require('gulp-plumber'),
     cleanCSS = require ('gulp-clean-css')
 
 gulp.task('css', function() {
-  return gulp.src('sass/style.scss')
+  return gulp.src([
+      'node_modules/jqvmap/dist/jqvmap.css',
+      'sass/style.scss'
+    ])
     .pipe(plumber())
     .pipe(sass())
     .pipe(autoprefixer({
@@ -28,6 +31,8 @@ gulp.task('js', function() {
       'node_modules/popper.js/dist/umd/popper.js',
       'node_modules/bootstrap/dist/js/bootstrap.js',
       'node_modules/js-marker-clusterer/src/markerclusterer.js',
+      'node_modules/jqvmap/dist/jquery.vmap.js',
+      'node_modules/jqvmap/dist/maps/jquery.vmap.world.js',
       'js/map.js',
       'js/*.js',
       '!js/customizer.js',

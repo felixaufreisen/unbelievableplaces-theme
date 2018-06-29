@@ -32,6 +32,7 @@
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
+<script async defer data-pin-hover="true" src="//assets.pinterest.com/js/pinit.js"></script>
 
 </body>
 </html>

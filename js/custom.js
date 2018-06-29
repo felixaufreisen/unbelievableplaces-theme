@@ -21,7 +21,7 @@ $(document).keyup(function(e) {
 });
 
 // Social Popup
-$(".social-wrap").click( function() {
+$(".social-wrap").not(".pinterest").click( function() {
   window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=900');
   return false;
 });

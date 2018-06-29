@@ -266,7 +266,7 @@ function unbelievable_places_share() {
 	        <i class="fab fa-google-plus-g"></i>
 	      </div>
 	    </a>
-	    <a href="http://pinterest.com/pin/create/button/?url=<?php echo $link; ?>" class="social-wrap pinterest" rel="nofollow" target="_blank">
+	    <a href="http://pinterest.com/pin/create/button/?url=<?php echo $link; ?>" class="social-wrap pinterest" rel="nofollow" target="_blank" data-pin-custom="true">
 	      <svg  preserveAspectRatio="xMinYMin meet" viewBox="0 0 200 200" class="circle">
 	         <circle cx="100" cy="100" r="50"/>
 	      </svg>
