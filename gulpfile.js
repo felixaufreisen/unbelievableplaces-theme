@@ -33,6 +33,7 @@ gulp.task('js', function() {
       'node_modules/js-marker-clusterer/src/markerclusterer.js',
       'node_modules/jqvmap/dist/jquery.vmap.js',
       'node_modules/jqvmap/dist/maps/jquery.vmap.world.js',
+      'node_modules/@fortawesome/fontawesome-free/js/all.js',
       'js/map.js',
       'js/*.js',
       '!js/customizer.js',
