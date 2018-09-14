@@ -36,34 +36,18 @@
 						<span class="navbar-toggler-icon"></span>
 					</button>
 					<div class="collapse navbar-collapse" id="navbarNavDropdown">
-					<ul class="navbar-nav mr-auto">
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          			Reiseberichte
-							</a>
-							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<div class="container-fluid">
-									<div class="row">
-										<div class="col-sm-2">
-											<?php do_action( 'get_unbelievable_subcats', 'Europa' ) ?>
-										</div>
-										<div class="col-sm-2">
-											<?php do_action( 'get_unbelievable_subcats', 'Afrika' ) ?>
-										</div>
-										<div class="col-sm-2">
-											<?php do_action( 'get_unbelievable_subcats', 'Naher Osten' ) ?>
-										</div>
-										<div class="col-sm-6">
-											<div id="travelmap" style="position: relative; width: 100%; height: 300px;"></div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li class="nav-item">
-							<a href="#" class="nav-link">Reisetipps</a>
-						</li>
-					</ul>
+					<?php
+					wp_nav_menu( array(
+						'theme_location'    => 'primary',
+						'depth'             => 2,
+						'container'         => 'div',
+						// 'container_class'   => 'collapse navbar-collapse',
+						// 'container_id'      => 'navbarNavDropdown',
+						'menu_class'        => 'nav navbar-nav',
+						'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+						'walker'            => new WP_Bootstrap_Navwalker()
+					) );
+					?>
 					<ul class="navbar-nav social">
 						<li class="nav-item">
 							<a href="#" class="nav-link"><i class="fab fa-facebook-square" aria-hidden></i><span class="sr-only">Facebook</span></a>

@@ -26,6 +26,18 @@ ul.navbar-nav.social {
   }
 }
 
+/* makes the dropdown full width  */
+.navbar .dropdown {position:static;}
+
+.navbar .dropdown-menu {
+  width:100%;
+  left:0;
+  right:0;
+  top:60px;
+  border: none;
+  opacity: 0.95;
+}
+
 /* The overlay effect with black background */
 .overlay {
   height: 100%;

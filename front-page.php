@@ -30,7 +30,7 @@ get_header();
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat laboriosam dicta aperiam, expedita iusto accusantium ipsam consequuntur recusandae dignissimos cumque, mollitia voluptatem. Laboriosam sint, obcaecati facere iure eos voluptatibus in suscipit cum vel, asperiores neque! Odio ab hic voluptatum at ducimus unde, nulla maxime recusandae. Neque quis consectetur totam. Ab eveniet veritatis aut neque tempora cupiditate, fugit reiciendis, velit dolorum vero. Sunt voluptatibus temporibus, totam tenetur neque iusto, nisi cumque accusantium. Assumenda accusamus nam perferendis neque minima optio error dolore, est ea facere reiciendis illo quod. Cum suscipit fugit possimus architecto a aperiam modi quia iure. Quasi eius, ratione doloremque!
       </div>
       <div class="col-lg-6 offset-lg-1">
-
+        <!-- <div id="travelmap" style="position: relative; width: 100%; height: 300px;"></div> -->
       </div>
     </div>
   </section>
@@ -65,7 +65,14 @@ get_header();
         </div>
         <div class="travel-details-item">
           <div class="desc-wrap">
-            <span class="desc">0 Tage</span>
+            <span class="desc">
+               <?php
+                 $today = date_create("now");
+                 $startdate = date_create("2018-11-04");
+                 $timetravelled = date_diff($startdate,$today);
+                 echo $timetravelled->format("%r%a Tage");
+               ?>
+             </span>
           </div>
           <div class="icon"><i class="fas fa-calendar-alt"></i></div>
         </div>

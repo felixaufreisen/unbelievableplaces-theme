@@ -99,6 +99,26 @@ function unbelievable_places_map( $set_lat, $set_lng, $set_zoom ) {
 }
 add_action( 'get_unbelievable_map', 'unbelievable_places_map', 10 , 3 );
 
+// Subcategories for menu
+function unbelievable_places_subcats( $parent ) {
+	$cat_id = get_cat_ID( $parent );
+	if ( $cat_id > 0 ) {
+		echo '<p class="h6"><a href="' . get_category_link( $cat_id ) . '">' . $parent . '</a></p>';
+		echo '<ul>';
+		$args = array(
+			'parent' => $cat_id,
+			'orderby' => 'name',
+			'order' => 'ASC'
+		);
+		$categories = get_categories( $args );
+		foreach($categories as $category) {
+			echo '<li><a href="' . get_category_link( $category->term_id ) . '">' . $category->name.'</a></li>';
+		}
+		echo '</ul>';
+	}
+}
+add_action( 'get_unbelievable_subcats', 'unbelievable_places_subcats' );
+
 /**
  * Show related posts
 **/
