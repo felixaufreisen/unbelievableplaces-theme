@@ -29,7 +29,7 @@
 		<a class="skip-link sr-only" href="#content"><?php esc_html_e( 'Skip to content', 'unbelievable-places' ); ?></a>
 
 		<header id="masthead" class="site-header">
-			<nav <?php do_action( 'get_unbelievable_nav_setup' ) ?>>
+			<nav <?php // do_action( 'get_unbelievable_nav_setup' ) ?> class="navbar navbar-expand-lg navbar-light fixed-top">
 				<div class="container-fluid">
 					<a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>">Felix auf Reisen</a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Menü öffnen">
@@ -37,25 +37,24 @@
 					</button>
 					<div class="collapse navbar-collapse" id="navbarNavDropdown">
 					<ul class="navbar-nav mr-auto">
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<li class="nav-item dropdown" id="travelreports">
+							<a class="nav-link dropdown-toggle" data-target="#" href="<?php echo esc_url( home_url( '/' ) ); ?>" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           			Reiseberichte
 							</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<div class="container-fluid">
-									<div class="row">
-										<div class="col-sm-2">
-											<?php do_action( 'get_unbelievable_subcats', 'Europa' ) ?>
-										</div>
-										<div class="col-sm-2">
-											<?php do_action( 'get_unbelievable_subcats', 'Afrika' ) ?>
-										</div>
-										<div class="col-sm-2">
-											<?php do_action( 'get_unbelievable_subcats', 'Naher Osten' ) ?>
-										</div>
-										<div class="col-sm-6">
-											<div id="travelmap" style="position: relative; width: 100%; height: 300px;"></div>
-										</div>
+								<div class="row">
+									<div class="col-md-2">
+										<?php do_action( 'get_unbelievable_subcats', 'Europa' ) ?>
+									</div>
+									<div class="col-md-2">
+										<?php do_action( 'get_unbelievable_subcats', 'Afrika' ) ?>
+									</div>
+									<div class="col-md-2">
+										<?php do_action( 'get_unbelievable_subcats', 'Naher Osten' ) ?>
+									</div>
+									<div class="col-md-6">
+										<p class="h6">Bisher besuchte Länder</p>
+										<div id="travelmap" style="position: relative; width: 100%; height: 300px;"></div>
 									</div>
 								</div>
 							</div>
@@ -69,13 +68,13 @@
 							<a href="#" class="nav-link"><i class="fab fa-facebook-square" aria-hidden></i><span class="sr-only">Facebook</span></a>
 						</li>
 						<li class="nav-item">
-							<a href="#" class="nav-link"><i class="fab fa-youtube-square" aria-hidden></i><span class="sr-only">YouTube</span></a>
+							<a href="https://www.youtube.com/channel/UCWGkKJFLpjgsGG36S2feycw" class="nav-link" target="_blank"><i class="fab fa-youtube-square" aria-hidden></i><span class="sr-only">YouTube</span></a>
 						</li>
 						<li class="nav-item">
 							<a href="#" class="nav-link"><i class="fab fa-instagram" aria-hidden></i><span class="sr-only">Instagram</span></a>
 						</li>
 						<li class="nav-item">
-							<a href="#" class="nav-link"><i class="fab fa-pinterest-square" aria-hidden></i><span class="sr-only">Pinterest</span></a>
+							<a href="https://www.pinterest.de/felixaufreisen/" class="nav-link" target="_blank"><i class="fab fa-pinterest-square" aria-hidden></i><span class="sr-only">Pinterest</span></a>
 						</li>
 						<li class="nav-item">
 							<a href="#" class="nav-link"><i class="fab fa-twitter-square" aria-hidden></i><span class="sr-only">Twitter</span></a>

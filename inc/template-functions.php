@@ -41,7 +41,7 @@ add_action( 'wp_head', 'unbelievable_places_pingback_header' );
  */
 function unbelievable_places_map( $set_lat, $set_lng, $set_zoom ) {
 	// Add necesary scripts to the document
-	wp_enqueue_script( 'google-maps-api', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAgn6PnEgwO-VsqWZl0mPE6BGSQvtb0koc&callback=initMap', array(), '', true );
+	wp_enqueue_script( 'google-maps-api', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDfeSGX0ncacK27wP8HIiQBk-Z8498QBmY&callback=initMap', array(), '', true );
 	wp_enqueue_script( 'google-maps-infobox', get_template_directory_uri() . '/js/infobox.js', array(), '', true );
 	// Init
 	$a = [];

@@ -16,38 +16,34 @@ get_header();
 ?>
 
 <div class="cover" id="front-page">
-  <img src="https://www.unbelievableplaces.de/design/DSC01346.jpg" alt="">
+  <img src="https://www.felixaufreisen.de/bilder/DSC01346.jpg" alt="Blaue Grotte auf Malta" data-pin-nopin="true">
 </div>
 
 <main id="main" class="container-fluid">
 
   <section class="fp-wrap">
     <div class="title">
-      <h2>Wer ich bin</h2>
+      <h2>Was ist hier los?</h2>
     </div>
     <div class="aboutme row">
-      <div class="desc col-lg-5">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat laboriosam dicta aperiam, expedita iusto accusantium ipsam consequuntur recusandae dignissimos cumque, mollitia voluptatem. Laboriosam sint, obcaecati facere iure eos voluptatibus in suscipit cum vel, asperiores neque! Odio ab hic voluptatum at ducimus unde, nulla maxime recusandae. Neque quis consectetur totam. Ab eveniet veritatis aut neque tempora cupiditate, fugit reiciendis, velit dolorum vero. Sunt voluptatibus temporibus, totam tenetur neque iusto, nisi cumque accusantium. Assumenda accusamus nam perferendis neque minima optio error dolore, est ea facere reiciendis illo quod. Cum suscipit fugit possimus architecto a aperiam modi quia iure. Quasi eius, ratione doloremque!
+      <div class="desc col-lg-7">
+        <?php
+          $today = date_create("now");
+          $birthday = date_create("1990-12-15");
+          $myage = date_diff($today,$birthday);
+        ?>
+        <p>Mitte 2018 habe ich meinen ganzen Mut zusammen genommen und die bisher wahrscheinlich größte Entscheidung meines Lebens getroffen. Job und Wohnung sind zum 31.10.2018 gekündigt. Gespart habe ich in den letzten Jahren fleißig und <strong>auf geht's die Welt zu entdecken</strong>. Also so richtig! One-Way geht's am 04. November 2018 von Berlin Schönefeld über Athen nach Kairo und dann schauen wir mal. Meine Idee ist mich auf dem Landweg Richtung Süden vorzuarbeiten. Wenn es mir gefällt vielleicht bis Südafrika. Ich möchte mir Zeit nehmen Länder und Leute kennenzulernen. Couchsurfing soll dabei eine Rolle spielen. Langfristige Planungen erzeugen nur unnötigen Stress, also lasse ich das lieber gleich von Anfang an.</p>
+        <p>Ach so. Wer hätte das gedacht? Mein Name ist <strong>Felix</strong>. <?php echo $myage->format("Ich bin %y Jahre alt."); ?> Und ab November 2018 bin ich <strong>auf Reisen</strong>.</p>
       </div>
-      <div class="col-lg-6 offset-lg-1">
-        <!-- <div id="travelmap" style="position: relative; width: 100%; height: 300px;"></div> -->
+      <div class="selfie col-lg-5">
+        <img src="https://www.felixaufreisen.de/bilder/Selfie_Petra.jpg" class="aligncenter" alt="Selfie in Petra, Jordanien">
       </div>
     </div>
   </section>
 
   <section class="fp-wrap">
     <div class="title">
-      <h2>Worüber ich schon geschrieben habe</h2>
-    </div>
-    <div class="map-wrap embed-responsive embed-responsive-16by9">
-      <?php do_action( 'unbelievable_loader' ) ?>
-      <?php do_action( 'get_unbelievable_map', '50.1', '8.7', '3.6' ) ?>
-    </div>
-  </section>
-
-  <section class="fp-wrap">
-    <div class="title">
-      <h2>Reisezählwerk</h2>
+      <h2>Weltreise-Zählwerk</h2>
     </div>
     <div class="travel-details row">
       <div class="travel-details-wrap col-12">
@@ -89,6 +85,16 @@ get_header();
           <div class="icon"><i class="fas fa-euro-sign"></i></div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="fp-wrap">
+    <div class="title">
+      <h2>Worüber ich schon geschrieben habe</h2>
+    </div>
+    <div class="map-wrap embed-responsive embed-responsive-16by9">
+      <?php do_action( 'unbelievable_loader' ) ?>
+      <?php do_action( 'get_unbelievable_map', '50.1', '8.7', '3.6' ) ?>
     </div>
   </section>
 

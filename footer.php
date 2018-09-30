@@ -19,9 +19,9 @@
         <div class="social col-12">
           <ul>
             <li><i class="fab fa-facebook-square" aria-hidden></i> Facebook</li>
-            <li><i class="fab fa-youtube-square" aria-hidden></i> YouTube</li>
+            <a href="https://www.youtube.com/channel/UCWGkKJFLpjgsGG36S2feycw" target="_blank"><li><i class="fab fa-youtube-square" aria-hidden></i> YouTube</li></a>
             <li><i class="fab fa-instagram" aria-hidden></i> Instagram</li>
-            <li><i class="fab fa-pinterest-square" aria-hidden></i> Pinterest</li>
+            <a href="https://www.pinterest.de/felixaufreisen/" target="_blank"><li><i class="fab fa-pinterest-square" aria-hidden></i> Pinterest</li></a>
             <li><i class="fab fa-twitter-square" aria-hidden></i> Twitter</li>
           </ul>
         </div>

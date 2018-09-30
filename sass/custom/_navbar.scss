@@ -26,16 +26,18 @@ ul.navbar-nav.social {
   }
 }
 
-/* makes the dropdown full width  */
+// Reiseberichte-Menü auf volle breite
 .navbar .dropdown {position:static;}
 
 .navbar .dropdown-menu {
-  width:100%;
-  left:0;
-  right:0;
-  top:60px;
-  border: none;
-  opacity: 0.95;
+  width: 65%;
+  padding: 16px;
+  left: auto;
+  right: auto;
+  top: auto;
+  border-radius: 0;
+  background-color: $light;
+  box-shadow: 1px 1px 16px rgba(0,0,0,.3);
 }
 
 /* The overlay effect with black background */

@@ -20,10 +20,8 @@ get_header();
 		<div class="row">
 			<div class="col-12">
 				<div class="title">
-					<?php
-						single_cat_title( '<h1 class="page-title display-4">', '</h1>' );
-						the_archive_description( '<div class="archive-description">', '</div>' );
-					?>
+					<h1 class="page-title display-4"><?php single_cat_title( ); ?></h1>
+					<div class="archive-description"><?php the_archive_description( ); ?></div>
 				</div>
 			</div>
 		</div>
