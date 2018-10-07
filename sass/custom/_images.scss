@@ -19,15 +19,30 @@ figure.wp-caption {
     margin-bottom: 0;
     border-bottom: none;
   }
-  figcaption {
-    @extend .figure-caption;
-    text-align: center;
-    border-top: none;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    border-bottom: 1px solid $gray-400;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 0.7rem;
+}
+
+// Bildbeschreibung
+figcaption {
+  @extend .figure-caption;
+  text-align: center;
+  border-top: none;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid $gray-400;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.7rem;
+}
+
+// Gallerien
+@for $i from 1 through 3 {
+  .gallery-columns-#{$i} .gallery-item {
+    max-width: ( 100% / $i );
   }
+}
+
+.gallery-item {
+  display: inline-block;
+  text-align: center;
+  padding: 4px;
 }

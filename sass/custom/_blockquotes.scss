@@ -1,0 +1,31 @@
+blockquote{
+  margin: 2em 0;
+  padding-left: 45px;
+  quotes: none;
+
+  /*Font*/
+  font-style: italic;
+  line-height: 1.75;
+  color: $secondary;
+
+  &::before{
+    content: "\201C"; /*Unicode for Left Double Quote*/
+
+    /*Font*/
+    font-family: Georgia, serif;
+    font-style: normal;
+    font-size: 52px;
+    line-height: 0.41;
+    color: $info;
+
+    /*Positioning*/
+    float: left;
+    margin-top: 18px;
+    margin-left: -45px;
+  }
+
+  &::after{
+    /*Reset to make sure*/
+    content: "";
+  }
+}

@@ -47,8 +47,10 @@ function unbelievable_places_map( $set_lat, $set_lng, $set_zoom ) {
 	$a = [];
 	$locations = [];
 	$settings = [];
-	// Show only published posts
-	$args = array( 'post_type' => 'post' );
+	$args = array(
+		'post_type' => 'post',	// Show only published posts
+		'posts_per_page' => -1 // Don't limit number of posts
+	);
 	// in category and tag archives show only matching posts
 	if ( is_category() || is_tag() ) {
 		if ( is_category() ) :
