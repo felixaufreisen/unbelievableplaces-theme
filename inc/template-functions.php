@@ -127,45 +127,59 @@ add_action( 'get_unbelievable_subcats', 'unbelievable_places_subcats' );
 function unbelievable_places_related_posts( ) {
 	$orig_post = $post;
 	global $post;
-	$tags = wp_get_post_tags($post->ID);
-	if ($tags) {
-		$tag_ids = array();
-		foreach($tags as $individual_tag) $tag_ids[] = $individual_tag->term_id;
-		$args=array(
-			'tag__in' => $tag_ids,
-			'post__not_in' => array($post->ID),
-			'posts_per_page'=>3,
-			'caller_get_posts'=>1,
-			'orderby'=>'rand'
-		);
+	$tags = wp_get_post_tags( $post->ID );
+	$cats = wp_get_post_categories( $post->ID );
+	// get the IDs of the tags
+	$tag_ids = array();
+	foreach($tags as $individual_tag) $tag_ids[] = $individual_tag->term_id;
 
-		$my_query = new WP_Query( $args );
-		if( $my_query->have_posts() ) { ?>
+	// setup the query args
+	$args=array(
+		'post__not_in' => array($post->ID),
+		'posts_per_page'=>3,
+		'orderby'=>'rand',
+		// Match posts with same categories OR tags
+		'tax_query'=>array(
+			relation => 'OR',
+			array(
+				taxonomy 	=> 'post_tag',
+				field 		=> 'term_id',
+				terms 		=> $tag_ids
+			),
+			array(
+				taxonomy 	=> 'category',
+				field 		=> 'term_id',
+				terms 		=> $cats
+			)
+		 )
+	);
 
-			<div class="related-posts">
-				<div class="title"><h3>Ähnliche Beiträge</h3></div>
-				<div class="related-posts-wrap">
+	$my_query = new WP_Query( $args );
+	if( $my_query->have_posts() ) { ?>
 
-					<?php
-					while($my_query->have_posts()) : $my_query->the_post();
-					?>
+		<div class="related-posts">
+			<div class="title"><h3>Ähnliche Beiträge</h3></div>
+			<div class="related-posts-wrap">
 
-						<article>
-							<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_post_thumbnail( 'medium' ); ?></a>
-							<div class="related-title">
-								<h3><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?></a></h3>
-							</div>
-							<div class="related-meta">
-								<span class="meta"><?php the_date(); ?></span>
-							</div>
-						</article>
+				<?php
+				while($my_query->have_posts()) : $my_query->the_post();
+				?>
 
-					<?php endwhile; ?>
+					<article>
+						<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_post_thumbnail( 'medium' ); ?></a>
+						<div class="related-title">
+							<h3><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?></a></h3>
+						</div>
+						<div class="related-meta">
+							<span class="meta"><?php the_date(); ?></span>
+						</div>
+					</article>
 
-				</div> <!-- .related-posts-wrap -->
-			</div> <!-- .related-posts -->
-		<?php
-		}
+				<?php endwhile; ?>
+
+			</div> <!-- .related-posts-wrap -->
+		</div> <!-- .related-posts -->
+	<?php
 	}
 	$post = $orig_post;
 	wp_reset_query();
@@ -225,23 +239,6 @@ function unbelievable_places_thumbnails() {
     add_image_size( 'category-thumb', 600, 600, true );
 }
 add_action( 'after_setup_theme', 'unbelievable_places_thumbnails' );
-
-function unbelievable_places_nav_setup() {
-	$class = 'class="navbar navbar-expand-lg';
-	$style = 'style="';
-	if ( is_front_page() || is_single() ) {
-		$class = $class . ' navbar-dark cover-picture';
-		$style = $style . 'margin-bottom: -80px;';
-	} else {
-		$class = $class . ' navbar-light';
-	}
-	// Close tags
-	$class = $class . '"';
-	$style = $style . '"';
-	// Output
-	echo $class . ' ' . $style;
-}
-add_action( 'get_unbelievable_nav_setup', 'unbelievable_places_nav_setup' );
 
 function unbelievable_places_loader() { ?>
 	<div id="loading">

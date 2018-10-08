@@ -16,7 +16,7 @@ get_header();
 ?>
 
 <div class="cover" id="front-page">
-  <img src="https://www.felixaufreisen.de/bilder/DSC01346.jpg" alt="Blaue Grotte auf Malta" data-pin-nopin="true">
+  <img src="https://www.felixaufreisen.de/images/DSC01346.jpg" alt="Blaue Grotte auf Malta" data-pin-nopin="true">
 </div>
 
 <main id="main" class="container-fluid">
@@ -36,7 +36,7 @@ get_header();
         <p>Ach so. Wer hätte das gedacht? Mein Name ist <strong>Felix</strong>. <?php echo $myage->format("Ich bin %y Jahre alt."); ?> Und ab November 2018 bin ich <strong>auf Reisen</strong>.</p>
       </div>
       <div class="selfie col-lg-5">
-        <img src="https://www.felixaufreisen.de/bilder/Selfie_Petra.jpg" class="aligncenter" alt="Selfie in Petra, Jordanien">
+        <img src="https://www.felixaufreisen.de/images/Selfie_Petra.jpg" class="aligncenter" alt="Selfie in Petra, Jordanien">
       </div>
     </div>
   </section>

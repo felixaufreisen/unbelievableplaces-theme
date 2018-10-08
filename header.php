@@ -60,7 +60,7 @@
 							</div>
 						</li>
 						<li class="nav-item">
-							<a href="#" class="nav-link">Reisetipps</a>
+							<a href="https://www.felixaufreisen.de/reisetipps/" class="nav-link">Reisetipps</a>
 						</li>
 					</ul>
 					<ul class="navbar-nav social">
