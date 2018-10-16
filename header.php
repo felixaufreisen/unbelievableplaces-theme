@@ -29,7 +29,7 @@
 		<a class="skip-link sr-only" href="#content"><?php esc_html_e( 'Skip to content', 'unbelievable-places' ); ?></a>
 
 		<header id="masthead" class="site-header">
-			<nav <?php // do_action( 'get_unbelievable_nav_setup' ) ?> class="navbar navbar-expand-lg navbar-light fixed-top">
+			<nav <?php // do_action( 'get_unbelievable_nav_setup' ) ?> class="navbar navbar-expand-lg navbar-light">
 				<div class="container-fluid">
 					<a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>">Felix auf Reisen</a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Menü öffnen">

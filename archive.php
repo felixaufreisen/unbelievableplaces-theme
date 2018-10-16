@@ -13,7 +13,7 @@ get_header();
 <header class="archive">
 	<div class="cover">
 		<?php do_action( 'unbelievable_loader' ) ?>
-		<?php do_action( 'get_unbelievable_map', '50.1', '8.7', '3.6' ) ?>
+		<?php do_action( 'get_unbelievable_map', '5' ) ?>
 	</div>
 
 	<div class="container-fluid">

@@ -1,7 +1,9 @@
-form.comment-form {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+form {
+  .comment-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
   p {
     @extend .form-group;
     &.comment-form- {

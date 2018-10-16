@@ -1,7 +1,7 @@
 // https://codepen.io/wouwi/pen/Lwrmi
 
 #share {
-  background-color: rgba($dark, 0.5);
+  background-color: transparent;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -25,7 +25,7 @@
     animation: outWaveOut 1s cubic-bezier(0.42, 0.0, 0.58, 1.0) forwards;
   }
   .social {
-    color:white;
+    color: $gray-700;
     font-size:1.2rem;
     position: absolute;
     top:0px;

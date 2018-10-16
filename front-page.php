@@ -88,13 +88,13 @@ get_header();
     </div>
   </section>
 
-  <section class="fp-wrap">
+  <section class="fp-wrap d-none d-md-block">
     <div class="title">
       <h2>Worüber ich schon geschrieben habe</h2>
     </div>
     <div class="map-wrap embed-responsive embed-responsive-16by9">
       <?php do_action( 'unbelievable_loader' ) ?>
-      <?php do_action( 'get_unbelievable_map', '50.1', '8.7', '3.6' ) ?>
+      <?php do_action( 'get_unbelievable_map', '3.6' ) ?>
     </div>
   </section>
 

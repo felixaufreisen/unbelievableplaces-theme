@@ -32,6 +32,15 @@ article a {
   }
 }
 
+aside{
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 2em;
+  }
+  h2 {
+    font-size: 1.3rem;
+  }
+}
+
 article,
   aside {
   ul, ol {
@@ -68,37 +77,7 @@ article,
   padding: 3px;
 }
 
-// .comment-respond h3,
-// .comment-list-wrap .title h3,
-// .fp-grid h3,
-// .fp-wrap .title h2,
-// .related-posts .title h3 {
-//   display: inline-block;
-//   font-size: 0.6em;
-//   line-height: 1.5em;
-//   text-align: center;
-//   text-transform: uppercase;
-//   letter-spacing: 4px;
-//   vertical-align: top;
-//   margin-bottom: 1.5rem;
-//   position: relative;
-//   &::before,
-//   &::after {
-//     content: " ";
-//     display: block;
-//     position: absolute;
-//     width: 100%;
-//     border-top: 1px solid $gray-200;
-//   }
-//   &::before {
-//     margin-bottom: 3px;
-//   }
-//   &::after {
-//     margin-top: 3px;
-//   }
-// }
-
-.comment-form label,
+form label,
 .comment-date,
 .entry-meta-wrap *,
 .related-meta,
@@ -110,7 +89,7 @@ article,
   text-transform: uppercase;
 }
 
-.comment-form label,
+form label,
 .comment-date {
   text-align: left;
 }

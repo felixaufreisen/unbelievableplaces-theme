@@ -39,12 +39,14 @@ add_action( 'wp_head', 'unbelievable_places_pingback_header' );
 /**
  * Generate social-wrap for embedded map
  */
-function unbelievable_places_map( $set_lat, $set_lng, $set_zoom ) {
+function unbelievable_places_map( $set_zoom ) {
 	// Add necesary scripts to the document
 	wp_enqueue_script( 'google-maps-api', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDfeSGX0ncacK27wP8HIiQBk-Z8498QBmY&callback=initMap', array(), '', true );
 	wp_enqueue_script( 'google-maps-infobox', get_template_directory_uri() . '/js/infobox.js', array(), '', true );
 	// Init
 	$a = [];
+	$lats = [];
+	$lngs = [];
 	$locations = [];
 	$settings = [];
 	$args = array(
@@ -67,7 +69,7 @@ function unbelievable_places_map( $set_lat, $set_lng, $set_zoom ) {
 		$lat = get_post_meta( get_the_ID(),'lat',true );
 		$lng = get_post_meta( get_the_ID(),'lng',true );
 		// Map Content
-		if ( ($lat > 0) && ($lng > 0) ) {
+		if ( ($lat != null) && ($lng != null) ) {
 			$cats = get_the_category();
 			$category = $cats[0]->name;
 			$date = get_the_date();
@@ -84,13 +86,28 @@ function unbelievable_places_map( $set_lat, $set_lng, $set_zoom ) {
 						 "color"			=>	"#fd7e14"
 						);
 			array_push( $locations, $a );
+			array_push( $lats, (float)$lat );
+			array_push( $lngs, (float)$lng );
 		}
 	endwhile;
+
+	// Calculate lat center
+	$min_lat = min( $lats );
+	$max_lat = max( $lats );
+	$range_lat = $max_lat - $min_lat;
+	$center_lat = $min_lat + ( $range_lat / 2 );
+	// Calculate lng center
+	$min_lng = min( $lngs );
+	$max_lng = max( $lngs );
+	$range_lng = $max_lng - $min_lng;
+	$center_lng = $min_lng + ( $range_lng / 2 );
+
 	// Map Settings
-	$settings = array(	"lat"	=>	(float)$set_lat,
-											"lng"	=>	(float)$set_lng,
+	$settings = array(	"lat"	=>	(float)$center_lat,
+											"lng"	=>	(float)$center_lng,
 											"zoom"	=>	(float)$set_zoom
 										);
+
 	// Generate Output String
 	$html = "<div id=\"map\" class=\"embed-responsive embed-responsive-16by9\"
 		 data-settings='" . esc_attr(json_encode( $settings, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE )) . "'
@@ -99,7 +116,7 @@ function unbelievable_places_map( $set_lat, $set_lng, $set_zoom ) {
 
 	echo $html;
 }
-add_action( 'get_unbelievable_map', 'unbelievable_places_map', 10 , 3 );
+add_action( 'get_unbelievable_map', 'unbelievable_places_map', 10 , 1 );
 
 // Subcategories for menu
 function unbelievable_places_subcats( $parent ) {
@@ -135,8 +152,9 @@ function unbelievable_places_related_posts( ) {
 
 	// setup the query args
 	$args=array(
+		// exclude the post itself
 		'post__not_in' => array($post->ID),
-		'posts_per_page'=>3,
+		'posts_per_page'=> 3,
 		'orderby'=>'rand',
 		// Match posts with same categories OR tags
 		'tax_query'=>array(
