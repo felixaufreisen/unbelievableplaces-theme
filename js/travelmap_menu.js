@@ -43,6 +43,8 @@ var map = new Datamap({
     MEX: { fillKey: 'felixHasVisited' },
     DZA: { fillKey: 'felixHasVisited' },
     GBR: { fillKey: 'felixHasVisited' },
+    EGY: { fillKey: 'felixHasVisited' },
+    SDN: { fillKey: 'felixHasVisited' },
   }
 });
 

@@ -1,0 +1,116 @@
+<IfModule mod_headers.c>
+	# HSTS nutzen (2 Jahre)
+	Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload" "expr=%{HTTPS} == 'on'"
+	# Unsicher Inhalte über HTTPS nachladen (Mixed Content vermeiden)
+	Header always set Content-Security-Policy "upgrade-insecure-requests;"
+	# Browser-Caching
+	# Ein Jahr für Bilder
+	<filesMatch ".(ico|pdf|flv|jpg|svg|jpeg|png|gif|swf)$">
+		Header set Cache-Control "max-age=31536000, public"
+	</filesMatch>
+	# Ein Monat fuer css und js
+	<filesMatch ".(css|js)$">
+		Header set Cache-Control "max-age=2628000, public"
+	</filesMatch>
+</IfModule>
+
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	# 301-Weiterleitung auf https, falls HSTS nicht funktioniert
+	RewriteCond %{HTTPS} off
+	RewriteRule (.*) https://%{HTTP_HOST}/$1 [R=301,L]
+	# 301-Weiterleitung von non-www auf www NACH Umleitung auf HTTPS
+	RewriteCond %{HTTPS} on
+	RewriteCond %{HTTP_HOST} !^www\.
+	RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
+	# Umzug /laender/ auf /reiseberichte/
+	RewriteRule ^laender/(.*)$ /reiseberichte/$1 [R=301,L]
+	# Umzug /baltikum/ auf /europa/
+	RewriteRule ^reiseberichte/baltikum/(.*)$ /reiseberichte/europa/$1 [R=301,L]
+        # AMP für Unterkategorie funktioniert nicht
+	RewriteRule ^reisetipps/amp/?$ /reisetipps/ [R=301,L]
+	RewriteRule ^reiseberichte/amp/?$ /reiseberichte/ [R=301,L]
+</IfModule>
+
+<IfModule mod_access_compat.c>
+	# 403-Fehler (Forbidden) für wichtige Dokumente
+	<FilesMatch "^.*(error_log|wp-config\.php|php.ini|\.[hH][tT][aApP].*)$">
+		order allow,deny
+		deny from all
+	</FilesMatch>
+</IfModule>
+
+# Directory Browsing deaktivieren
+Options All -Indexes
+
+# Umzug nach felixaufreisen.de
+Redirect 301 /kontakt/ https://www.felixaufreisen.de/kontakt/
+Redirect 301 /datenschutz/ https://www.felixaufreisen.de/datenschutzerklaerung/
+Redirect 301 /impressum/ https://www.felixaufreisen.de/impressum/
+Redirect 410 /felix-auf-reisen-wer-ich-bin/
+
+Redirect 301 /reiseberichte/algerien/im-gassen-wirrwarr-der-kasbah-algier/amp/ https://www.felixaufreisen.de/im-gassen-wirrwarr-der-kasbah-algier/amp/
+Redirect 301 /reiseberichte/algerien/backpacking-nordafrika-algerien/amp/ https://www.felixaufreisen.de/backpacking-in-nordafrika-algerien/amp/
+Redirect 301 /reiseberichte/algerien/ghardaia-maerchenstadt-in-der-algerischen-sahara/amp/ https://www.felixaufreisen.de/ghardaia-maerchenstadt-in-der-algerischen-sahara/amp/
+Redirect 301 /reiseberichte/deutschland/tagesausflug-basteibruecke-saechsische-schweiz/amp/ https://www.felixaufreisen.de/tagesausflug-zur-basteibruecke-saechsische-schweiz/amp/
+Redirect 301 /reiseberichte/deutschland/tagesausflug-zur-rakotzbruecke/amp/ https://www.felixaufreisen.de/tagesausflug-zur-rakotzbruecke/amp/
+Redirect 301 /reiseberichte/europa/quer-ueber-malta-in-einem-tag/amp/ https://www.felixaufreisen.de/quer-ueber-malta-in-einem-tag/amp/
+Redirect 301 /reiseberichte/europa/winter-kurztrip-ins-sonnige-malta/amp/ https://www.felixaufreisen.de/winter-kurztrip-ins-sonnige-malta/amp/
+Redirect 301 /reiseberichte/europa/staedtetrip-riga-top-5-aktivitaeten/amp/ https://www.felixaufreisen.de/staedtetrip-riga-top-5-aktivitaeten/amp/
+Redirect 301 /reiseberichte/iran/couchsurfing-im-iran/amp/ https://www.felixaufreisen.de/couchsurfing-im-iran-verrueckt-oder-was/amp/
+Redirect 301 /reiseberichte/iran/persepolis-und-pasargadae/amp/ https://www.felixaufreisen.de/persepolis-und-pasargadae/amp/
+Redirect 301 /reiseberichte/mit-dem-rucksack-durch-den-iran-november-2015/amp/ https://www.felixaufreisen.de/backpacking-im-iran-mit-dem-rucksack-durchs-land/amp/
+Redirect 301 /reiseberichte/jordanien/entdeckungsreise-durch-jordanien/amp/ https://www.felixaufreisen.de/entdeckungsreise-durch-jordanien/amp/
+Redirect 301 /reiseberichte/jordanien/rundtrip-jordanien-reisevorbereitung/amp/ https://www.felixaufreisen.de/rundtrip-jordanien-reisevorbereitung/amp/
+Redirect 301 /reiseberichte/jordanien/petra-vom-hostel-schnell-zur-felsenstadt/amp/ https://www.felixaufreisen.de/petra-vom-hostel-schnell-zur-felsenstadt/amp/
+Redirect 301 /reiseberichte/backpacking-kurztrip-libanon-in-3-tagen/amp/ https://www.felixaufreisen.de/backpacking-kurztrip-libanon-in-3-tagen/amp/
+
+Redirect 301 /reiseberichte/algerien/im-gassen-wirrwarr-der-kasbah-algier/ https://www.felixaufreisen.de/im-gassen-wirrwarr-der-kasbah-algier/
+Redirect 301 /reiseberichte/algerien/backpacking-nordafrika-algerien/ https://www.felixaufreisen.de/backpacking-in-nordafrika-algerien/
+Redirect 301 /reiseberichte/algerien/ghardaia-maerchenstadt-in-der-algerischen-sahara/ https://www.felixaufreisen.de/ghardaia-maerchenstadt-in-der-algerischen-sahara/
+Redirect 301 /reiseberichte/deutschland/tagesausflug-basteibruecke-saechsische-schweiz/ https://www.felixaufreisen.de/tagesausflug-zur-basteibruecke-saechsische-schweiz/
+Redirect 301 /reiseberichte/deutschland/tagesausflug-zur-rakotzbruecke/ https://www.felixaufreisen.de/tagesausflug-zur-rakotzbruecke/
+Redirect 301 /reiseberichte/europa/quer-ueber-malta-in-einem-tag/ https://www.felixaufreisen.de/quer-ueber-malta-in-einem-tag/
+Redirect 301 /reiseberichte/europa/winter-kurztrip-ins-sonnige-malta/ https://www.felixaufreisen.de/winter-kurztrip-ins-sonnige-malta/
+Redirect 301 /reiseberichte/europa/staedtetrip-riga-top-5-aktivitaeten/ https://www.felixaufreisen.de/staedtetrip-riga-top-5-aktivitaeten/
+Redirect 301 /reiseberichte/iran/couchsurfing-im-iran/ https://www.felixaufreisen.de/couchsurfing-im-iran-verrueckt-oder-was/
+Redirect 301 /reiseberichte/iran/persepolis-und-pasargadae/ https://www.felixaufreisen.de/persepolis-und-pasargadae/
+Redirect 301 /reiseberichte/mit-dem-rucksack-durch-den-iran-november-2015/ https://www.felixaufreisen.de/backpacking-im-iran-mit-dem-rucksack-durchs-land/
+Redirect 301 /reiseberichte/jordanien/entdeckungsreise-durch-jordanien/ https://www.felixaufreisen.de/entdeckungsreise-durch-jordanien/
+Redirect 301 /reiseberichte/jordanien/rundtrip-jordanien-reisevorbereitung/ https://www.felixaufreisen.de/rundtrip-jordanien-reisevorbereitung/
+Redirect 301 /reiseberichte/jordanien/petra-vom-hostel-schnell-zur-felsenstadt/ https://www.felixaufreisen.de/petra-vom-hostel-schnell-zur-felsenstadt/
+Redirect 301 /reiseberichte/backpacking-kurztrip-libanon-in-3-tagen/ https://www.felixaufreisen.de/backpacking-kurztrip-libanon-in-3-tagen/
+
+Redirect 301 /reiseberichte/algerien/ https://www.felixaufreisen.de/afrika/algerien/
+Redirect 301 /reiseberichte/deutschland/ https://www.felixaufreisen.de/europa/deutschland/
+Redirect 301 /reiseberichte/europa/ https://www.felixaufreisen.de/europa/
+Redirect 301 /reiseberichte/iran/ https://www.felixaufreisen.de/naher-osten/iran/
+Redirect 301 /reiseberichte/jordanien/ https://www.felixaufreisen.de/naher-osten/jordanien/
+Redirect 301 /reiseberichte/libanon/ https://www.felixaufreisen.de/naher-osten/libanon/
+
+Redirect 301 /reiseberichte/ https://www.felixaufreisen.de/
+
+Redirect 410 /reisetipps/transferwise-geld-ins-ausland-transferieren/
+Redirect 410 /reisetipps/kostenloses-reisekonto-mit-kreditkarte/
+Redirect 410 /reisetipps/meine-kreditkarten-als-backpacker/
+Redirect 301 /reisetipps/packliste-fuer-meine-weltreise/ https://www.felixaufreisen.de/packliste-fuer-meine-weltreise-2018/
+Redirect 301 /reisetipps/reiseapotheke-fuer-backpacker/ https://www.felixaufreisen.de/reiseapotheke-fuer-backpacker/
+
+Redirect 301 /reisetipps/ https://www.felixaufreisen.de/reisetipps/
+
+
+# Benutzerdefinierte Fehlerseiten
+ErrorDocument 401 /index.php?status=401
+ErrorDocument 403 /index.php?status=403
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress

@@ -21,10 +21,21 @@
 	<meta name="apple-mobile-web-app-title" content="<?php bloginfo( 'name' ); ?> - <?php bloginfo( 'description' ); ?>">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-M3T46PJ');</script>
+	<!-- End Google Tag Manager -->
 	<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M3T46PJ"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
 	<div id="page" class="site">
 		<a class="skip-link sr-only" href="#content"><?php esc_html_e( 'Skip to content', 'unbelievable-places' ); ?></a>
 
@@ -65,23 +76,23 @@
 					</ul>
 					<ul class="navbar-nav social">
 						<li class="nav-item">
-							<a href="#" class="nav-link"><i class="fab fa-facebook-square" aria-hidden></i><span class="sr-only">Facebook</span></a>
+							<a href="https://www.facebook.com/felixaufreisen.de/" class="nav-link" target="_blank"><i class="fab fa-facebook-square" aria-hidden></i><span class="sr-only">Facebook</span></a>
 						</li>
 						<li class="nav-item">
 							<a href="https://www.youtube.com/channel/UCWGkKJFLpjgsGG36S2feycw" class="nav-link" target="_blank"><i class="fab fa-youtube-square" aria-hidden></i><span class="sr-only">YouTube</span></a>
 						</li>
 						<li class="nav-item">
-							<a href="#" class="nav-link"><i class="fab fa-instagram" aria-hidden></i><span class="sr-only">Instagram</span></a>
+							<a href="https://www.instagram.com/felixaufreisen.de/" class="nav-link" target="_blank"><i class="fab fa-instagram" aria-hidden></i><span class="sr-only">Instagram</span></a>
 						</li>
 						<li class="nav-item">
 							<a href="https://www.pinterest.de/felixaufreisen/" class="nav-link" target="_blank"><i class="fab fa-pinterest-square" aria-hidden></i><span class="sr-only">Pinterest</span></a>
 						</li>
-						<li class="nav-item">
+						<!-- <li class="nav-item">
 							<a href="#" class="nav-link"><i class="fab fa-twitter-square" aria-hidden></i><span class="sr-only">Twitter</span></a>
-						</li>
-						<li class="nav-item">
+						</li> -->
+						<!-- <li class="nav-item">
 							<a onclick="openSearch()" class="nav-link pointer"><i class="fas fa-search" aria-hidden></i><span class="sr-only">Suche</span></a>
-						</li>
+						</li> -->
 					</ul>
 					</div>
 				</div>

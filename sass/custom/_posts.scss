@@ -83,3 +83,7 @@ article.post {
     }
   }
 }
+
+iframe[src*="openstreetmap.org"] {
+ width: 100%;
+}

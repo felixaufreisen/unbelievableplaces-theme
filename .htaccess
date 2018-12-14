@@ -1,0 +1,51 @@
+<IfModule mod_headers.c>
+	# HSTS nutzen (2 Jahre)
+	Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload" "expr=%{HTTPS} == 'on'"
+	# Unsicher Inhalte über HTTPS nachladen (Mixed Content vermeiden)
+	Header always set Content-Security-Policy "upgrade-insecure-requests;"
+	# Browser-Caching
+	# Ein Jahr für Bilder
+	<filesMatch ".(ico|pdf|flv|jpg|svg|jpeg|png|gif|swf)$">
+		Header set Cache-Control "max-age=31536000, public"
+	</filesMatch>
+	# Ein Monat fuer css und js
+	<filesMatch ".(css|js)$">
+		Header set Cache-Control "max-age=2628000, public"
+	</filesMatch>
+</IfModule>
+
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	# 301-Weiterleitung auf https
+	RewriteCond %{HTTPS} off
+	RewriteRule (.*) https://%{HTTP_HOST}/$1 [R=301,L]
+	# 301-Weiterleitung von non-www auf www NACH Umleitung auf HTTPS
+	RewriteCond %{HTTPS} on
+	RewriteCond %{HTTP_HOST} !^www\.
+	RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
+</IfModule>
+
+<IfModule mod_access_compat.c>
+	# 403-Fehler (Forbidden) für wichtige Dokumente
+	<FilesMatch "^.*(error_log|wp-config\.php|php.ini|\.[hH][tT][aApP].*)$">
+		order allow,deny
+		deny from all
+	</FilesMatch>
+</IfModule>
+
+# Directory Browsing deaktivieren
+Options All -Indexes
+
+ErrorDocument 401 default
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress

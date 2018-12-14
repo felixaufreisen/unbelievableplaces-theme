@@ -1,0 +1,148 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-17 12:42+0200\n"
+"PO-Revision-Date: 2018-10-17 13:00+0200\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: de_DE\n"
+
+#: 404.php:22
+msgid "Oops! That page can&rsquo;t be found."
+msgstr "Uups! Diese Seite wurde leider nicht gefunden."
+
+#: 404.php:26
+msgid ""
+"It looks like nothing was found at this location. Maybe try one of the links "
+"below or a search?"
+msgstr ""
+"Anscheinend hast du dich verlaufen. Vielleicht hilft dir die Suchfunktion "
+"weiter."
+
+#: 404.php:29
+msgid "Go to Previous Page"
+msgstr "Zurück zur letzten Seite"
+
+#: 404.php:30
+msgid "Go to Homepage"
+msgstr "Gehe zur Startseite"
+
+#: comments.php:53
+msgid "Comments are closed."
+msgstr "Die Kommentarfunktion ist deaktiviert."
+
+#: functions.php:47
+msgid "Primary"
+msgstr "Hauptmenü"
+
+#: functions.php:108
+msgid "Sidebar"
+msgstr "Sidebar"
+
+#: functions.php:110
+msgid "Add widgets here."
+msgstr "Widget hinzufügen"
+
+#: header.php:29
+msgid "Skip to content"
+msgstr "Weiter zum Inhalt"
+
+#: search.php:22
+#, php-format
+msgid "Search Results for: %s"
+msgstr "Deine Suche nach %s"
+
+#: inc/class-wp-bootstrap-navwalker.php:366
+msgid "Add a menu"
+msgstr "Menü hinzufügen"
+
+#: inc/template-functions.php:232
+msgid "Your comment is awaiting moderation."
+msgstr "Dein Kommentar wartet auf Freischaltung."
+
+#: inc/template-tags.php:29
+#, php-format
+msgctxt "post date"
+msgid "Posted on %s"
+msgstr "Veröffentlicht am %s"
+
+#: inc/template-tags.php:45
+#, php-format
+msgctxt "post author"
+msgid "by %s"
+msgstr "von %s"
+
+#: inc/template-tags.php:69
+#, fuzzy
+#| msgid ""
+msgctxt "list item separator"
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2\n"
+
+#: inc/template-tags.php:72
+#, php-format
+msgid "%1$s"
+msgstr ""
+
+#: inc/template-tags.php:84
+#, php-format
+msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
+msgstr ""
+"Schreibe ein Kommentar <span class=\"screen-reader-text\"> zu %s</span>"
+
+#: inc/template-tags.php:101 template-parts/content-page.php:40
+#, php-format
+msgid "Edit <span class=\"screen-reader-text\">%s</span>"
+msgstr "Bearbeite <span class=\"screen-reader-text\">%s</span>"
+
+#: template-parts/content-none.php:14
+msgid "Nothing Found"
+msgstr "Nichts gefunden"
+
+#: template-parts/content-none.php:24
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: template-parts/content-none.php:37
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr "Zu deiner Suche konnte ich leider nichts finden."
+
+#: template-parts/content-none.php:44
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+"Anscheinend hast du dich verlaufen. Sicher hilft dir die Suchfunktion weiter."
+
+#: template-parts/content-page.php:27 template-parts/content.php:64
+msgid "Pages:"
+msgstr "Seiten:"
+
+#: template-parts/content.php:53
+#, php-format
+msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr "<span class=\"screen-reader-text\"> \"%s\"</span> weiter lesen"

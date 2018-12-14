@@ -49,13 +49,13 @@ get_header();
       <div class="travel-details-wrap col-12">
         <div class="travel-details-item">
           <div class="desc-wrap">
-            <span class="desc">0 Kontinente</span>
+            <span class="desc">1 Kontinent</span>
           </div>
           <div class="icon"><i class="fas fa-globe"></i></div>
         </div>
         <div class="travel-details-item">
           <div class="desc-wrap">
-            <span class="desc">0 Länder</span>
+            <span class="desc">2 Länder</span>
           </div>
           <div class="icon"><i class="fas fa-flag"></i></div>
         </div>
@@ -74,13 +74,13 @@ get_header();
         </div>
         <div class="travel-details-item">
           <div class="desc-wrap">
-            <span class="desc">0 Kilometer</span>
+            <span class="desc">2600 Kilometer</span>
           </div>
           <div class="icon"><i class="fas fa-map-signs"></i></div>
         </div>
         <div class="travel-details-item">
           <div class="desc-wrap">
-            <span class="desc">0 Euro</span>
+            <span class="desc">1137 Euro</span>
           </div>
           <div class="icon"><i class="fas fa-euro-sign"></i></div>
         </div>
