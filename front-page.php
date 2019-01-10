@@ -55,7 +55,7 @@ get_header();
         </div>
         <div class="travel-details-item">
           <div class="desc-wrap">
-            <span class="desc">2 Länder</span>
+            <span class="desc">3 Länder</span>
           </div>
           <div class="icon"><i class="fas fa-flag"></i></div>
         </div>
@@ -80,7 +80,7 @@ get_header();
         </div>
         <div class="travel-details-item">
           <div class="desc-wrap">
-            <span class="desc">1137 Euro</span>
+            <span class="desc">1993 Euro</span>
           </div>
           <div class="icon"><i class="fas fa-euro-sign"></i></div>
         </div>

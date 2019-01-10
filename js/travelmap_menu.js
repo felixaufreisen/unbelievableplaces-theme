@@ -45,6 +45,7 @@ var map = new Datamap({
     GBR: { fillKey: 'felixHasVisited' },
     EGY: { fillKey: 'felixHasVisited' },
     SDN: { fillKey: 'felixHasVisited' },
+    ETH: { fillKey: 'felixHasVisited' },
   }
 });
 
