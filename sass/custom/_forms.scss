@@ -1,26 +1,22 @@
-form {
-  .comment-form {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
+form.comment-form {
+    @extend .row;
   p {
     @extend .form-group;
     &.comment-form- {
       &author,
       &email,
       &url {
-        flex: 0 1 auto;
-        max-width: 210px;
+        @extend .col-lg-4;
       }
       &comment {
-        width: 100%;
+        // width: 100%;
+        @extend .col-lg-12;
       }
     }
     &.form-submit {
       text-align: right;
-      width: 100%;
       margin-top: 0.5em;
+      @extend .col-lg-12;
     }
     &.comment-notes {
       display: none;
