@@ -56,14 +56,6 @@
   }
   .social {color:#3b5998;}
 }
-.google:hover {
-  .circle {
-      fill:#ffffff;
-  fill-opacity : 1;
-  animation: outWaveIn 1s cubic-bezier(0.42, 0.0, 0.58, 1.0) forwards, colorGoogle 1s linear forwards;
-  }
-  .social {color:#dd4b39;}
-}
 .pinterest:hover {
   .circle {
       fill:#ffffff;
