@@ -63,7 +63,7 @@
 									<div class="col-md-2">
 										<?php do_action( 'get_unbelievable_subcats', 'Naher Osten' ) ?>
 									</div>
-									<div class="col-md-6">
+									<div class="col-md-6 d-none d-md-block">
 										<p class="h6">Bisher besuchte Länder</p>
 										<div id="travelmap" style="position: relative; width: 100%; height: 300px;"></div>
 									</div>
@@ -72,6 +72,9 @@
 						</li>
 						<li class="nav-item">
 							<a href="https://www.felixaufreisen.de/reisetipps/" class="nav-link">Reisetipps</a>
+						</li>
+						<li class="nav-item">
+							<a href="https://www.felixaufreisen.de/kontakt/" class="nav-link">Kontakt</a>
 						</li>
 					</ul>
 					<ul class="navbar-nav social">
@@ -99,12 +102,12 @@
 			</nav><!-- #site-navigation -->
 		</header><!-- #masthead -->
 
-		<div id="myOverlay" class="overlay nav-link">
+		<!-- <div id="myOverlay" class="overlay nav-link">
 		  <span class="closebtn" onclick="closeSearch()" aria-label="Schließen" aria-hidden="true"><i class="fas fa-times"></i></span>
 			<form action="" methos="get">
 			  <input type="search" placeholder="Wie kann ich dir weiterhelfen?" name="s" class="form-control" id="searchInput">
 				<button type="submit" class="btn btn-secondary btn-lg">Suche <i class="fas fa-search"></i></button>
 			</form>
-		</div>
+		</div> -->
 
 		<div id="content" class="site-content">

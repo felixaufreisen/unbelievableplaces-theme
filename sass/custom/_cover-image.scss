@@ -19,47 +19,32 @@
     img {
       z-index: 1;
       object-fit: cover;
-      -o-object-fit: cover;
-      -o-object-position: center center;
-         object-position: center center;
+      object-position: center center;
       height: 100%;
       width:100%;
-      position:relative;
-
-      -webkit-animation-name: stretch;
-              animation-name: stretch;
-      -webkit-animation-duration: 10s;
-              animation-duration: 10s;
-      -webkit-animation-timing-function: ease-out;
-              animation-timing-function: ease-out;
-      -webkit-animation-delay: 0s;
-              animation-delay: 0s;
-      -webkit-animation-direction: alternate;
-              animation-direction: alternate;
-      -webkit-animation-iteration-count: infinite;
-              animation-iteration-count: infinite;
-      -webkit-animation-fill-mode: none;
-              animation-fill-mode: none;
-      -webkit-animation-play-state: running;
-              animation-play-state: running;
+      position:relative;    
+      animation-name: stretch;
+      animation-duration: 10s;
+      animation-timing-function: ease-out;
+      animation-delay: 0s;
+      animation-direction: alternate;
+      animation-iteration-count: infinite;
+      animation-fill-mode: none;
+      animation-play-state: running;
       @-webkit-keyframes stretch {
         0% {
-          -webkit-transform: scale(1);
-                  transform: scale(1);
+          transform: scale(1);
         }
         100% {
-          -webkit-transform: scale(1.1);
-                  transform: scale(1.1);
+          transform: scale(1.1);
         }
       }
       @keyframes stretch {
         0% {
-          -webkit-transform: scale(1);
-                  transform: scale(1);
+          transform: scale(1);
         }
         100% {
-          -webkit-transform: scale(1.1);
-                  transform: scale(1.1);
+          transform: scale(1.1);
         }
       }
     }

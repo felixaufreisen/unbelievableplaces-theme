@@ -1,7 +1,9 @@
-.tablepress th,
-.tablepress td {
-  font-size: 10px;
-  @include media-breakpoint-up(md) {
-	  font-size: 1rem;
+table.wp-block-table {
+  margin-bottom: $paragraph-margin-bottom;
+  th, td {
+    font-size: 10px;
+    @include media-breakpoint-up(md) {
+      font-size: 1rem;
+    }
   }
 }

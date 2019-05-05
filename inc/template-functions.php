@@ -40,10 +40,8 @@ add_action( 'wp_head', 'unbelievable_places_pingback_header' );
  * Generate social-wrap for embedded map
  */
 function unbelievable_places_map( $set_zoom ) {
-	// Add necesary scripts to the document
-	wp_enqueue_script( 'google-maps-api', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDfeSGX0ncacK27wP8HIiQBk-Z8498QBmY&callback=initMap', array(), '', true );
-	wp_enqueue_script( 'google-maps-infobox', get_template_directory_uri() . '/js/infobox.js', array(), '', true );
 	// Init
+	$has_locations = false;
 	$a = [];
 	$lats = [];
 	$lngs = [];
@@ -70,6 +68,7 @@ function unbelievable_places_map( $set_zoom ) {
 		$lng = get_post_meta( get_the_ID(),'lng',true );
 		// Map Content
 		if ( ($lat != null) && ($lng != null) ) {
+			$has_locations = true;
 			$cats = get_the_category();
 			$category = $cats[0]->name;
 			$date = get_the_date();
@@ -91,28 +90,37 @@ function unbelievable_places_map( $set_zoom ) {
 		}
 	endwhile;
 
-	// Calculate lat center
-	$min_lat = min( $lats );
-	$max_lat = max( $lats );
-	$range_lat = $max_lat - $min_lat;
-	$center_lat = $min_lat + ( $range_lat / 2 );
-	// Calculate lng center
-	$min_lng = min( $lngs );
-	$max_lng = max( $lngs );
-	$range_lng = $max_lng - $min_lng;
-	$center_lng = $min_lng + ( $range_lng / 2 );
+	// Show map only if there is at least one relevant post
+	if ( $has_locations ) {
+		// Add necesary scripts to the document
+		wp_enqueue_script( 'google-maps-api', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDfeSGX0ncacK27wP8HIiQBk-Z8498QBmY&callback=initMap', array(), '', true );
+		wp_enqueue_script( 'google-maps-infobox', get_template_directory_uri() . '/js/infobox.js', array(), '', true );
 
-	// Map Settings
-	$settings = array(	"lat"	=>	(float)$center_lat,
-											"lng"	=>	(float)$center_lng,
-											"zoom"	=>	(float)$set_zoom
-										);
+		// Calculate lat center
+		$min_lat = min( $lats );
+		$max_lat = max( $lats );
+		$range_lat = $max_lat - $min_lat;
+		$center_lat = $min_lat + ( $range_lat / 2 );
+		// Calculate lng center
+		$min_lng = min( $lngs );
+		$max_lng = max( $lngs );
+		$range_lng = $max_lng - $min_lng;
+		$center_lng = $min_lng + ( $range_lng / 2 );
 
-	// Generate Output String
-	$html = "<div id=\"map\" class=\"embed-responsive embed-responsive-16by9\"
-		 data-settings='" . esc_attr(json_encode( $settings, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE )) . "'
-		 data-locations='" . esc_attr(json_encode( $locations, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE )) . "'>
-	</div>";
+		// Map Settings
+		$settings = array(	"lat"	=>	(float)$center_lat,
+												"lng"	=>	(float)$center_lng,
+												"zoom"	=>	(float)$set_zoom
+											);
+
+		// Generate Output String
+		$html = "<div id=\"map\" class=\"embed-responsive embed-responsive-16by9\"
+			 data-settings='" . esc_attr(json_encode( $settings, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE )) . "'
+			 data-locations='" . esc_attr(json_encode( $locations, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE )) . "'>
+		</div>";
+	} else { // Wenn keine Datenpunkte in Karte, dann Standardbild zeigen
+		$html = "<div id=\"nomap\"><img src=\"https://www.felixaufreisen.de/images/DSC01346.jpg\" alt=\"Blaue Grotte auf Malta\" data-pin-nopin=\"true\"></div>";
+	}
 
 	echo $html;
 }
@@ -142,8 +150,8 @@ add_action( 'get_unbelievable_subcats', 'unbelievable_places_subcats' );
  * Show related posts
 **/
 function unbelievable_places_related_posts( ) {
-	$orig_post = $post;
 	global $post;
+	$orig_post = $post;
 	$tags = wp_get_post_tags( $post->ID );
 	$cats = wp_get_post_categories( $post->ID );
 	// get the IDs of the tags
@@ -158,16 +166,16 @@ function unbelievable_places_related_posts( ) {
 		'orderby'=>'rand',
 		// Match posts with same categories OR tags
 		'tax_query'=>array(
-			relation => 'OR',
+			'relation' => 'OR',
 			array(
-				taxonomy 	=> 'post_tag',
-				field 		=> 'term_id',
-				terms 		=> $tag_ids
+				'taxonomy' 	=> 'post_tag',
+				'field' 		=> 'term_id',
+				'terms' 		=> $tag_ids
 			),
 			array(
-				taxonomy 	=> 'category',
-				field 		=> 'term_id',
-				terms 		=> $cats
+				'taxonomy' 	=> 'category',
+				'field' 		=> 'term_id',
+				'terms' 		=> $cats
 			)
 		 )
 	);

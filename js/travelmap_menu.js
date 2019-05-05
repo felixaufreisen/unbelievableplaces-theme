@@ -51,6 +51,7 @@ var map = new Datamap({
     BHR: { fillKey: 'felixHasVisited' },
     KWT: { fillKey: 'felixHasVisited' },
     QAT: { fillKey: 'felixHasVisited' },
+    IRQ: { fillKey: 'felixHasVisited' },
   }
 });
 

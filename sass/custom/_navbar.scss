@@ -1,22 +1,4 @@
-// Navbar-Deckkraft auf 10%, beim Scrollen auf 93%
-.navbar {
-  background-color: rgba($light, 0.1);
-  height: 80px;
-  z-index: 4;
-  transition: background-color 0.4s;
-  &.fixed-top {
-    background-color: rgba($light, 0.93);
-    height: inherit;
-  }
-}
-
-.navbar-collapse {
-  @include media-breakpoint-up(lg) {
-    display: flex;
-    justify-content: space-between;
-  }
-}
-
+// Social-Icons in Navbar
 ul.navbar-nav.social {
   display: flex;
   flex-direction: row;
@@ -26,74 +8,77 @@ ul.navbar-nav.social {
   }
 }
 
-// Reiseberichte-Menü auf volle breite
-.navbar .dropdown {position:static;}
+// Reiseberichte-Menü in Breite ziehen
+@include media-breakpoint-up(lg) {
+  .navbar .dropdown {position:static;}
 
-.navbar .dropdown-menu {
-  width: 65%;
-  padding: 16px;
-  left: auto;
-  right: auto;
-  top: auto;
-  border-radius: 0;
-  background-color: $light;
-  box-shadow: 1px 1px 16px rgba(0,0,0,.3);
+  .navbar .dropdown-menu {
+    width: 65%;
+    padding: 16px;
+    left: auto;
+    right: auto;
+    top: auto;
+    border-radius: 0;
+    background-color: $light;
+    box-shadow: 1px 1px 16px rgba(0,0,0,.3);
+  }
 }
 
+// Such-Fenster
 /* The overlay effect with black background */
-.overlay {
-  height: 100%;
-  width: 100%;
-  display: none;
-  position: fixed;
-  z-index: 2000;
-  top: 0;
-  left: 0;
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0, 0.8); /* Black with a little bit see-through */
-  opacity: 0;
-  transition: opacity .4s ease-in-out;
-  /* The content */
-  input[type="search"] {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    color: rgb(255, 255, 255);
-    background: rgba(0, 0, 0, 0);
-    font-size: 60px;
-    font-weight: 300;
-    text-align: center;
-    border: 0px;
-    margin: 0px auto;
-    margin-top: -51px;
-    padding-left: 30px;
-    padding-right: 30px;
-    outline: none;
-    &:focus {
-      outline: none;
-    }
-  }
-  .btn {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: 61px;
-    margin-left: -45px;
-    opacity: 0.85;
-  }
-  /* Close button */
-  .closebtn {
-    position: absolute;
-    top: 20px;
-    right: 45px;
-    font-size: 3rem;
-    cursor: pointer;
-    color: white;
-    &:hover {
-      color: #ccc;
-    }
-  }
-}
+// .overlay {
+//   height: 100%;
+//   width: 100%;
+//   display: none;
+//   position: fixed;
+//   z-index: 2000;
+//   top: 0;
+//   left: 0;
+//   background-color: rgb(0,0,0);
+//   background-color: rgba(0,0,0, 0.8); /* Black with a little bit see-through */
+//   opacity: 0;
+//   transition: opacity .4s ease-in-out;
+//   /* The content */
+//   input[type="search"] {
+//     position: absolute;
+//     top: 50%;
+//     width: 100%;
+//     color: rgb(255, 255, 255);
+//     background: rgba(0, 0, 0, 0);
+//     font-size: 60px;
+//     font-weight: 300;
+//     text-align: center;
+//     border: 0px;
+//     margin: 0px auto;
+//     margin-top: -51px;
+//     padding-left: 30px;
+//     padding-right: 30px;
+//     outline: none;
+//     &:focus {
+//       outline: none;
+//     }
+//   }
+//   .btn {
+//     position: absolute;
+//     top: 50%;
+//     left: 50%;
+//     margin-top: 61px;
+//     margin-left: -45px;
+//     opacity: 0.85;
+//   }
+//   /* Close button */
+//   .closebtn {
+//     position: absolute;
+//     top: 20px;
+//     right: 45px;
+//     font-size: 3rem;
+//     cursor: pointer;
+//     color: white;
+//     &:hover {
+//       color: #ccc;
+//     }
+//   }
+// }
 
 .pointer {
   cursor: pointer;

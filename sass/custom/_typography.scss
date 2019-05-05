@@ -44,14 +44,16 @@ aside{
 article,
   aside {
   ul, ol {
-    margin: 0 24px 1.75em;
-    padding: 0;
-    li {
-      margin: 0.5em 0 0.5em;
+    &:not(.wp-block-gallery)  {
+      margin: 0 24px 1.75em;
+      padding: 0;
+      li {
+        margin: 0.5em 0 0.5em;
+      }
     }
   }
 
-  ul > li {
+  ul > li:not(.blocks-gallery-item) {
     list-style: none;
     position: relative;
     &::before {
