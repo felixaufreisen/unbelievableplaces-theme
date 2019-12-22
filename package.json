@@ -17,22 +17,22 @@
   },
   "homepage": "https://github.com/felixaufreisen/unbelievableplaces-theme#readme",
   "devDependencies": {
-    "gulp": "^4.0.1",
-    "gulp-autoprefixer": "^5.0.0",
-    "gulp-clean-css": "^3.10.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-clean-css": "^4.2.0",
     "gulp-concat": "^2.6.1",
     "gulp-jshint": "^2.1.0",
     "gulp-plumber": "^1.2.1",
     "gulp-sass": "^4.0.2",
     "gulp-uglify": "^3.0.2",
-    "jshint": "^2.10.2"
+    "jshint": "^2.10.3"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.8.1",
+    "@fortawesome/fontawesome-free": "^5.12.0",
     "@google/markerclusterer": "^1.0.3",
-    "bootstrap": "^4.3.1",
+    "bootstrap": "^4.4.1",
     "datamaps": "^0.5.9",
     "jquery": "^3.4.1",
-    "popper.js": "^1.15.0"
+    "popper.js": "^1.16.0"
   }
 }

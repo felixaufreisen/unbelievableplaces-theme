@@ -56,6 +56,8 @@
 								<div class="row">
 									<div class="col-md-2">
 										<?php do_action( 'get_unbelievable_subcats', 'Europa' ) ?>
+										<p></p>
+										<?php do_action( 'get_unbelievable_subcats', 'Asien' ) ?>
 									</div>
 									<div class="col-md-2">
 										<?php do_action( 'get_unbelievable_subcats', 'Afrika' ) ?>

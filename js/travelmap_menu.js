@@ -27,6 +27,7 @@ var map = new Datamap({
     ROU: { fillKey: 'felixHasVisited' },
     MDA: { fillKey: 'felixHasVisited' },
     UKR: { fillKey: 'felixHasVisited' },
+    RUS: { fillKey: 'felixHasVisited' },
     MNE: { fillKey: 'felixHasVisited' },
     ALB: { fillKey: 'felixHasVisited' },
     SRB: { fillKey: 'felixHasVisited' },
@@ -52,6 +53,19 @@ var map = new Datamap({
     KWT: { fillKey: 'felixHasVisited' },
     QAT: { fillKey: 'felixHasVisited' },
     IRQ: { fillKey: 'felixHasVisited' },
+    CYP: { fillKey: 'felixHasVisited' },
+    PHL: { fillKey: 'felixHasVisited' },
+    HKG: { fillKey: 'felixHasVisited' },
+    MAC: { fillKey: 'felixHasVisited' },
+    CHN: { fillKey: 'felixHasVisited' },
+    TWN: { fillKey: 'felixHasVisited' },
+    KAZ: { fillKey: 'felixHasVisited' },
+    KGZ: { fillKey: 'felixHasVisited' },
+    TJK: { fillKey: 'felixHasVisited' },
+    UZB: { fillKey: 'felixHasVisited' },
+    AFG: { fillKey: 'felixHasVisited' },
+    GEO: { fillKey: 'felixHasVisited' },
+    CUB: { fillKey: 'felixHasVisited' },
   }
 });
 
