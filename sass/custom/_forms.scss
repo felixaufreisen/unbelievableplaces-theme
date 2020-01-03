@@ -1,22 +1,19 @@
-form.comment-form {
+form.comment-form,
+form.wpcf7-form {
     @extend .row;
   p {
     @extend .form-group;
+    @extend .col-lg-12;
     &.comment-form- {
       &author,
       &email,
       &url {
         @extend .col-lg-4;
       }
-      &comment {
-        // width: 100%;
-        @extend .col-lg-12;
-      }
     }
     &.form-submit {
       text-align: right;
       margin-top: 0.5em;
-      @extend .col-lg-12;
     }
     &.comment-notes {
       display: none;
@@ -25,7 +22,6 @@ form.comment-form {
   input, textarea {
     @extend .form-control;
     border-radius: 0;
-    font-size: 0.9em;
     &[type="submit"] {
       @extend .btn;
       @extend .btn-outline-secondary;
