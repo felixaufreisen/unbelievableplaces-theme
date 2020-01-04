@@ -74,9 +74,16 @@ article,
   text-align: center;
 }
 
-.cover-title .entry-meta * {
+.cover-title {
+  @include media-breakpoint-up(md) {
+    h1 {
+      font-size: 3.5rem;
+    }
+  }
+  .entry-meta * {
   font-size: 1rem;
   padding: 3px;
+ }
 }
 
 form label,
