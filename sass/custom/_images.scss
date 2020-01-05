@@ -31,7 +31,7 @@ figcaption {
   border-bottom: 1px solid $gray-400;
   text-transform: uppercase;
   letter-spacing: 2px;
-  font-size: 0.7rem;
+  @include font-size(0.7rem);;
 }
 
 // Gallerien

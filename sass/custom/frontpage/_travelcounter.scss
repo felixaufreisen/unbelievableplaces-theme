@@ -25,11 +25,11 @@
     }
 
     .icon {
-      font-size: 3rem;
+      @include font-size(3rem);
       font-weight: 600;
       color: $info;
-      @include media-breakpoint-up(lg) {
-        font-size: 6rem;
+      @include media-breakpoint-up(md) {
+        @include font-size(6rem);
       }
     }
 

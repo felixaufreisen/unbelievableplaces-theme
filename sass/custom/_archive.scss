@@ -42,7 +42,7 @@
       flex-wrap: wrap;
     }
     .content * {
-      font-size: 1rem;
+      @include font-size(1rem);;
       line-height: 1.5em;
       margin: 0;
     }

@@ -1,14 +1,5 @@
 body {
-  font-size: 1rem;
-  @include media-breakpoint-up(sm) {
-    font-size: 1.1rem;
-  }
-  @include media-breakpoint-up(md) {
-    font-size: 1.2rem;
-  }
-  @include media-breakpoint-up(lg) {
-    font-size: 1.3rem;
-  }
+  @include font-size(1.3rem);
 }
 
 b, strong {
@@ -37,7 +28,7 @@ aside{
     margin-top: 2em;
   }
   h2 {
-    font-size: 1.3rem;
+    @include font-size(1.3rem);
   }
 }
 
@@ -75,13 +66,11 @@ article,
 }
 
 .cover-title {
-  @include media-breakpoint-up(md) {
-    h1 {
-      font-size: 3.5rem;
-    }
+  h1 {
+    @extend .display-4;
   }
   .entry-meta * {
-  font-size: 1rem;
+  @include font-size(1rem);;
   padding: 3px;
  }
 }
@@ -93,7 +82,7 @@ form label,
 .content-meta * {
   display: block;
   text-align: center;
-  font-size: 0.6rem;
+  @include font-size(0.6rem);
   letter-spacing: 2px;
   text-transform: uppercase;
 }
